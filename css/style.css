@@ -1,0 +1,46 @@
+/* centering */
+.center-item-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* width fixed */
+.w-40 {
+    width: 40%;
+    display: inline;
+}
+
+/* hover  */
+input:hover {
+    background-color: rgba(53, 58, 6, 0.212);
+    color: black;
+}
+
+.calculation {
+    background-color: hsla(182, 93%, 74%, 0.947);
+    border-radius: 20px;
+}
+
+
+.button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+}
+
+
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+    <!-- custom css link  -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/cake.png" type="image/x-icon">
+    <title>Cake</title>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="container mt-5">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-md-5 center-item-left">
+                        <div>
+                            <img class="w-100" src="images/cake.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 calculation">
+                        <header>
+                            <h1 style="text-align: center;">1 Pound cake measurement</h1>
+                            <hr>
+                            <p>The Baker’s Formula is used to calculate the proper percentage of each ingredient for a
+                                successful recipe. The flour in the recipe is designated at 100% and all the other
+                                ingredients are designated relative to the flour. This is a very important point, so
+                                keep it in mind as we get deeper into it.h</p>
+                        </header>
+                        <!-- input field  -->
+                        <div class="mt-5">
+                            <h5>Flour</h5>
+                            <input id="flour1" class="rounded-3" type="text" placeholder="100 gram">
+                            <input id="flour2" class="rounded-3" type="text" placeholder="200 gram">
+                            <!-- <button id="flour2" class="button button2">Add 200 gram</button> -->
+
+                        </div>
+                        <div class="mt-4">
+                            <h5>Suger</h5>
+                            <input id="good-suger" class="rounded-3" type="text" placeholder="100 gram">
+                            <input id="better-suger" class="rounded-3" type="text" placeholder="200 gram">
+                            <input id="best-suger" class="rounded-3" type="text" placeholder="300 gram">
+                        </div>
+                        <div class="mt-4">
+                            <h5>Egg</h5>
+                            <input id="free-egg" class="w-40 rounded-3" type="text" placeholder="3 pics">
+                            <input id="charged-egg" class="w-40 rounded-3" type="text" placeholder="5 pics">
+                        </div>
+                        <div class="mt-4">
+                            <h5>Oil</h5>
+                            <input id="oil1-delivery" class="w-40 rounded-3" type="text" placeholder="50 gram">
+                            <input id="oil2-delivery" class="w-40 rounded-3" type="text" placeholder="100 gram">
+                        </div>
+                        <div class="mt-4">
+                            <h5>Baking Powder</h5>
+                            <input id="baking1-delivery" class="w-40 rounded-3" type="text" placeholder="25 gram">
+                            <input id="baking2-delivery" class="w-40 rounded-3" type="text" placeholder="50 gram">
+                        </div>
+                        <!-- price field  -->
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h6>Best price</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>৳<span id="cake-total">480</span> </h5>
+                            </div>
+                        </div>
+                        <hr class="w-75">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Flour Cost</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>৳<span id="extra-flour-cost">0</span> </h5>
+                            </div>
+                        </div>
+                        <hr class="w-75">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Suger Cost</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>৳<span id="extra-suger-cost">0</span> </h5>
+                            </div>
+                        </div>
+                        <hr class="w-75">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Egg charge</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>৳<span id="egg-cost">0</span> </h5>
+                            </div>
+                        </div>
+                        <hr class="w-75">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Oil charge</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>৳<span id="oil-cost">0</span> </h5>
+                            </div>
+                        </div>
+                        <hr class="w-75">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Baking Powder charge</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>৳<span id="baking-cost">0</span> </h5>
+                            </div>
+                        </div>
+                        <hr class="w-75">
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6>Total Price</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>৳<span id="total-price">0</span> </h5>
+                            </div>
+                        </div>
+                        <!-- pomo code added -->
+                        <div class="mb-4">
+                            <h5>Add Promo code</h5>
+                            <input id="user-input" class="rouded-3" type="text">
+                            <button id="login-submit" class="btn-danger rounded-1">Apply</button>
+                        </div>
+
+                    </div>
+                    <!-- Total value  -->
+                    <hr>
+                    <div class="text-center mb-5">
+                        <h1>Total: ৳<span id="total">480</span> </h1>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- js link  -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
