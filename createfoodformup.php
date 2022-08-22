@@ -29,7 +29,7 @@ if ($conn->query($sql) === TRUE) {
     $conn->close();
 
 
-    header("Location: foodshowcase.php");
+    header("Location: foodshowcase2.php");
 
 
 
