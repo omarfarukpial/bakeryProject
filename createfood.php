@@ -117,9 +117,15 @@
             </div>
         </section>
         <!--Navbar section ends here-->
+
+
+
+<?php 
+include('connect.php');
+?>
         
 
-        <div class="inform">
+        <div class="inform" >
             <form action="createfoodformup.php" method = "post" enctype= "multipart/form-data">
                 <label for="fid">Food ID</label>
                 <input type="text" id="fid" name="fid" placeholder="Food ID">
@@ -135,17 +141,47 @@
                 <br>
                 <br> -->
 
+<!-- 
+                <label for="fcategory">Food Category</label>
+                <input type="text" id="fcategory" name="fcategory" placeholder="Food Category"> -->
 
                 <label for="fcategory">Food Category</label>
-                <input type="text" id="fcategory" name="fcategory" placeholder="Food Category">
+
+                <select name="fcategory" id="fcategory">
+                <option  selected disabled hidden>Choose Category</option>
+                <option value="cake">Cake</option>
+                <option value="dessert">Dessert</option>
+                <option value="fastfood">Fast Food</option>
+                <option value="cookies">Cookies</option>
+                </select>
+
+
+
 
                 <label for="fingradient">Food Ingradients</label> <br>
 
                 <ul class="ingradient-ul"> 
                     <div id="inputFormRow">
                         <li class="ingradient-li"  >
-                            <input type="text"  name="ingradient_name[]" value=""  class="ingradient_name" placeholder="Name" required>
+                
+                        <select name="ingradient_name[]" class="ingradient_name">
+                        <option disable selected> Select Ingradients</option>
+                        <?php
+                            $sql = 'select pid,pname from product';
+                            $res = $conn->query($sql);
+                            while ($row = $res->fetch_assoc()) {
+                                printf(
+                                    '<option value="%s">%s', $row['pid'], $row['pname']
+                                );
+                            }
+
+                        ?>
+                        </select>
+
+                            <!-- <input type="text"  name="ingradient_name[]" value=""  class="ingradient_name" placeholder="Name" required> -->
                             <input type="text" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>
+
+                            <input type="text" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit" required>
                             
                             <button class="crossb" id="removeRow"></button>
                         </li>
@@ -167,15 +203,14 @@
 
         <script type="text/javascript">
         $(".addingradientbutton").click(function () {        
-            newRowAdd =
-            '<div id="inputFormRow">'+
-                
-                '<li class="ingradient-li"  >'+
-                    '<input type="text" name="ingradient_name[]" value=""  class="ingradient_name" placeholder="Name" required>' +
-                    '<input type="text" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>'+
-                    '<button class="crossb" id="removeRow"></button>'+
-                 '</li>'+
-            '</div>';
+        //     newRowAdd =
+        //     '<div id="inputFormRow">'+        
+        //         '<li class="ingradient-li"  >'+
+        //             '<input type="text" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>'+
+        //             ' <input type="text" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit" required>'+
+        //             '<button class="crossb" id="removeRow"></button>'+
+        //          '</li>'+
+        //     '</div>';
 
         $('.ingradient-ul').append(newRowAdd);
      });
