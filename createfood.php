@@ -130,6 +130,9 @@
         <!--Navbar section ends here-->
 
 
+        <script> let i =0;</script>
+
+
 
 <?php 
 include('connect.php');
@@ -137,7 +140,7 @@ include('connect.php');
         
 
         <div class="inform" >
-            <form action="createfoodformup.php" method = "post" enctype= "multipart/form-data">
+            <form action="testingradient.php" method = "post" enctype= "multipart/form-data">
                 <label for="fid">Food ID</label>
                 <input type="text" id="fid" name="fid" placeholder="Food ID">
 
@@ -173,16 +176,16 @@ include('connect.php');
 
                 <label for="fingradient">Food Ingradients</label> <br>
 
-                <table id = "showingradient">
+                <div id = "showingradient">
                     <br>
 
-                </table>
+                 </div>
 
                 <ul class="ingradient-ul"> 
                     <div id="inputFormRow">
                         <li class="ingradient-li"  >
                 
-                        <select name="ingradient_name[]" class="ingradient_name" onchange="showUnit(this.value)">
+                        <select name="ingradient_name[i]" id = "iname" class="ingradient_name" onchange="showUnit(this.value)">
                         <option disable selected> Select Ingradients</option>
                         <?php
                             $sql = 'select pid,pname from product';
@@ -197,9 +200,9 @@ include('connect.php');
                         </select>
 
                             <!-- <input type="text"  name="ingradient_name[]" value=""  class="ingradient_name" placeholder="Name" required> -->
-                            <input type="text" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>
+                            <input type="text" id = "iamount" name="ingradient_amount[i]" value=""  class="ingradient_amount" placeholder="Quantity">
 
-                            <input type="text" id="ingradient_unit" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit" disabled required>
+                            <input type="text" id="ingradient_unit" name="ingradient_unit[i]" value=""  class="ingradient_unit" placeholder="unit" disabled>
                             
                             <!-- <button class="crossb" id="removeRow"></button> -->
                         </li>
@@ -218,54 +221,75 @@ include('connect.php');
         </div>
 
 
+        
+        <script type="text/javascript">
+        $(".addingradientbutton").click(function () { 
+            
+            let ingradientName = document.getElementsByClassName("ingradient_name")[i].value;
+            let ingradientAmount = document.getElementsByClassName("ingradient_amount")[i].value;
+            let ingradientUnit = document.getElementsByClassName("ingradient_unit")[i].value; 
 
-        <!-- <script type="text/javascript">
-        $(".addingradientbutton").click(function () {        
-        //     newRowAdd =
-        //     '<div id="inputFormRow">'+        
-        //         '<li class="ingradient-li"  >'+
-        //             '<input type="text" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>'+
-        //             ' <input type="text" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit" required>'+
-        //             '<button class="crossb" id="removeRow"></button>'+
-        //          '</li>'+
-        //     '</div>';
+            i = i+1;   
+               
+            newRowAdd =
+            '<div id="inputFormRow">'+        
+                '<li class="ingradient-li"  >'+
+                    '<input type=text name=ingradient_name[i] class=ingradient_name value='+ingradientName+' disabled>'+
+                    '<input type=text name=ingradient_amount[i] class=ingradient_amount value='+ingradientAmount+' disabled>'+
+                    ' <input type=text name=ingradient_unit[i] class=ingradient_unit value='+ingradientUnit+' disabled>'+
+                 '</li>'+
+            '</div>';
 
-        $('.ingradient-ul').append(newRowAdd);
+            
+
+            // document.getElementById("iname").value = "";
+            // document.getElementById("iamount").value = "";
+            // document.getElementById("ingradient_unit").value = "";
+
+
+
+
+            
+
+        $('#showingradient').append(newRowAdd);
      });
 
 
      $(document).on('click', '#removeRow', function () {
         $(this).closest('#inputFormRow').remove();
     });
-    </script> -->
+    </script>
 
 
 
     <script>
         function addingradient() {
-            var table = document.getElementById("showingradient");
-            var row = table.insertRow(0);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
+            // var table = document.getElementById("showingradient");
+            // var row = table.insertRow(0);
+            // var cell1 = row.insertCell(0);
+            // var cell2 = row.insertCell(1);
+            // var cell3 = row.insertCell(2);
 
-            cell2.style.textAlign = "right";
+            // cell2.style.textAlign = "right";
 
-            let ingradientName = document.getElementsByClassName("ingradient_name")[0].value;
-            let ingradientAmount = document.getElementsByClassName("ingradient_amount")[0].value;
-            let ingradientUnit = document.getElementsByClassName("ingradient_unit")[0].value;
-
-
-
-            cell1.innerHTML = ingradientName;
-            cell2.innerHTML = ingradientAmount;
-            cell3.innerHTML = ingradientUnit;
+            // let ingradientName = document.getElementsByClassName("ingradient_name")[0].value;
+            // let ingradientAmount = document.getElementsByClassName("ingradient_amount")[0].value;
+            // let ingradientUnit = document.getElementsByClassName("ingradient_unit")[0].value;
 
 
 
-            document.getElementsByClassName("ingradient_name")[0].value="";
-            document.getElementsByClassName("ingradient_amount")[0].value="";
-            document.getElementsByClassName("ingradient_unit")[0].value="";
+            // cell1.innerHTML = ingradientName;
+            // cell2.innerHTML = ingradientAmount;
+            // cell3.innerHTML = ingradientUnit;
+
+
+
+            // document.getElementsByClassName("ingradient_name")[0].value="";
+            // document.getElementsByClassName("ingradient_amount")[0].value="";
+            // document.getElementsByClassName("ingradient_unit")[0].value="";
+
+
+            // document.getElementById("showingradient").innerHTML = "<input type=text id=ingradient_name name=ingradient_name[] class=ingradient_name value="+ingradientName+" disabled>"
 
           
 
