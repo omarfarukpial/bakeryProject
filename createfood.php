@@ -130,13 +130,17 @@
         <!--Navbar section ends here-->
 
 
-        <script> let i =0;</script>
+   
 
 
 
 <?php 
 include('connect.php');
 ?>
+
+<script>
+    var i = 0;
+</script>
         
 
         <div class="inform" >
@@ -176,16 +180,13 @@ include('connect.php');
 
                 <label for="fingradient">Food Ingradients</label> <br>
 
-                <div id = "showingradient">
-                    <br>
-
-                 </div>
+                
 
                 <ul class="ingradient-ul"> 
                     <div id="inputFormRow">
                         <li class="ingradient-li"  >
                 
-                        <select name="ingradient_name[i]" id = "iname" class="ingradient_name" onchange="showUnit(this.value)">
+                        <select name="ingradient_name[]" id = "iname" class="ingradient_name" onchange="showUnit(this.value)">
                         <option disable selected> Select Ingradients</option>
                         <?php
                             $sql = 'select pid,pname from product';
@@ -200,17 +201,22 @@ include('connect.php');
                         </select>
 
                             <!-- <input type="text"  name="ingradient_name[]" value=""  class="ingradient_name" placeholder="Name" required> -->
-                            <input type="text" id = "iamount" name="ingradient_amount[i]" value=""  class="ingradient_amount" placeholder="Quantity">
+                            <input type="text" id = "iamount" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>
 
-                            <input type="text" id="ingradient_unit" name="ingradient_unit[i]" value=""  class="ingradient_unit" placeholder="unit" disabled>
+                            <input type="text" id="ingradient_unit_0" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit">
                             
                             <!-- <button class="crossb" id="removeRow"></button> -->
+                            
                         </li>
                         
                         
                     </div>
                     
                 </ul>
+                <div id = "showingradient">
+                    
+
+                 </div>
                 <button type="button" class="addingradientbutton" onclick="addingradient()" >Add Ingradients</button>
                 <br>
                 <br>
@@ -220,23 +226,57 @@ include('connect.php');
             </form>
         </div>
 
+       
+
+
+
 
         
         <script type="text/javascript">
         $(".addingradientbutton").click(function () { 
+            i = i+1;
             
-            let ingradientName = document.getElementsByClassName("ingradient_name")[i].value;
-            let ingradientAmount = document.getElementsByClassName("ingradient_amount")[i].value;
-            let ingradientUnit = document.getElementsByClassName("ingradient_unit")[i].value; 
+            // let ingradientName = document.getElementsByClassName("ingradient_name")[i].value;
+            // let ingradientAmount = document.getElementsByClassName("ingradient_amount")[i].value;
+            // let ingradientUnit = document.getElementsByClassName("ingradient_unit")[i].value; 
 
-            i = i+1;   
+            
                
+            // newRowAdd =
+            // '<div id="inputFormRow">'+        
+            //     '<li class="ingradient-li"  >'+
+            //         '<input type=text name=ingradient_name[i] class=ingradient_name value='+ingradientName+' disabled>'+
+            //         '<input type=text name=ingradient_amount[i] class=ingradient_amount value='+ingradientAmount+' disabled>'+
+            //         ' <input type=text name=ingradient_unit[i] class=ingradient_unit value='+ingradientUnit+' disabled>'+
+            //      '</li>'+
+            // '</div>';
+
+
+            // newRowAdd = document.getElementById('inputFormRowTemplate').innerHTML;
+            newselect = document.getElementById('iname').innerHTML;
             newRowAdd =
             '<div id="inputFormRow">'+        
                 '<li class="ingradient-li"  >'+
-                    '<input type=text name=ingradient_name[i] class=ingradient_name value='+ingradientName+' disabled>'+
-                    '<input type=text name=ingradient_amount[i] class=ingradient_amount value='+ingradientAmount+' disabled>'+
-                    ' <input type=text name=ingradient_unit[i] class=ingradient_unit value='+ingradientUnit+' disabled>'+
+                '<select name="ingradient_name[]" id = "iname" class="ingradient_name" onchange="showUnit(this.value)">'+
+                    newselect+
+                '</select>'+
+                
+                    // '<select name="ingradient_name[i]" id = "iname" class="ingradient_name" onchange="showUnit(this.value)">'+
+                    //     '<option disable selected> Select Ingradients</option>'+
+                    //     // <?php
+                    //     //     $sql = "select pid,pname from product";
+                    //     //     $res = $conn->query($sql);
+                    //     //     while ($row = $res->fetch_assoc()) {
+                    //     //         printf(
+                    //     //             '<option value="%s">%s', $row['pname'], $row['pname']
+                    //     //         );
+                    //     //     }
+
+                    //     // ?>
+                    //     '</select>'+
+                        '<input type="text" id = "iamount" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>'+
+                        '<input type="text" id="ingradient_unit_'+i+'" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit">'+
+                        
                  '</li>'+
             '</div>';
 
@@ -247,11 +287,15 @@ include('connect.php');
             // document.getElementById("ingradient_unit").value = "";
 
 
+            
+
+
+
 
 
             
 
-        $('#showingradient').append(newRowAdd);
+        $('#inputFormRow').append(newRowAdd);
      });
 
 
@@ -302,15 +346,19 @@ include('connect.php');
 
 <script>
     function showUnit(pname) {
+        
            
                 var xmlhttp=new XMLHttpRequest();
                 xmlhttp.onreadystatechange=function() {
                 if (this.readyState==4 && this.status==200) {
                     var myobj = JSON.parse(this.responseText);
                     
-                    document.getElementById("ingradient_unit").value=myobj[0];
+                    document.getElementById("ingradient_unit_"+i).value=myobj[0];
                     }
                 }
+
+                console.log(i);
+                
 
                     
         
@@ -318,6 +366,9 @@ include('connect.php');
         xmlhttp.send();
         }
 </script>
+
+
+
 
      
        
