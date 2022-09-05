@@ -7,14 +7,15 @@ $sql= "SELECT * From stock
         WHERE pid = '$pid' ";
 $result = $conn->query($sql);
 
-$sqlcost = "SELECT price as p From product
+$sqlcost = "SELECT price as p, pname as n From product
             WHERE pid = '$pid'";
 $cost = $conn->query($sqlcost);
 
-
-
 $row = $cost->fetch_assoc();
 $pcost = $row['p'];
+$pname = $row['n'];
+
+
 
 $totalcost = $pcost*$pquantity;
 
@@ -22,9 +23,9 @@ $totalcost = $pcost*$pquantity;
 
 
 if ($result -> num_rows == 0) {
-    $stmt = $conn->prepare("insert into stock(pid,pquantity,pcost)
-                        values(?,?,?)");
-    $stmt->bind_param("sdd",$pid, $pquantity, $totalcost);
+    $stmt = $conn->prepare("insert into stock(pid,pname, pquantity,punitcost, pcost)
+                        values(?,?,?,?,?)");
+    $stmt->bind_param("ssddd",$pid,$pname, $pquantity, $pcost, $totalcost);
     $stmt->execute();
 
 }

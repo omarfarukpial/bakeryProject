@@ -10,6 +10,74 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <!--link css file-->
     <link rel="stylesheet" href="style.css">
+    <style>
+            #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+            margin-left: 200px;
+            
+            
+            }
+
+            #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            }
+
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+            #customers tr:hover {background-color: #ddd;}
+
+            #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+            }
+            .container{
+                font-size: x-large;
+            }
+            h1 {
+                text-align: center;
+            }
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                }
+
+                input[type=submit] {
+                width: 30%;
+                background-color: red;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                }
+
+                input[type=submit]:hover {
+                background-color: #45a049;
+                }
+
+                .inform {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                margin: 30px;
+                }
+                .container{
+                font-size: x-large;
+                }
+
+        </style>
 </head>
 
 <body>
@@ -59,21 +127,96 @@
 	$ingradient_amount = $_POST['ingradient_amount'];
 	$ingradient_unit = $_POST['ingradient_unit'];
 
+    ?>
 
-		foreach($ingradient_name as $value, $ingradient_amount as $am, $ingradient_unit as $un){
-			echo $value . "<br>";
-			echo $am . "<br>";
-			echo $un . "<br>";
-		}
 
-	$len = count($ingradient_name)
 
+    <div style= "text-align: center">
+           
+
+           <h1>Product price</h1>
+
+            <table id="customers"  >
+            <tr>
+                <th>Poduct</th>
+                <th>Quantity</th>
+                <th>Unit type</th>
+                <th>Price</th>
+
+            </tr>
+
+
+
+
+
+  
+
+
+    <?php
+
+    $ingradientString="";
+    $netcost = 0;
+
+	$len = count($ingradient_name);
+    for ( $i= 0; $i<$len; $i++) {
+
+        $ingradcostdb = ($conn->query("SELECT * FROM stock WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['punitcost'];
+        $ingradcost = $ingradient_amount[$i] * $ingradcostdb;
+        $netcost += $ingradcost;
+
+        $ingradientString = $ingradientString.$ingradient_name[$i]." = ".$ingradient_amount[$i]." ".$ingradient_unit[$i]."<br>";
+        echo "<tr>";
+        echo "<td align=left>".$ingradient_name[$i]."</td>". "<td align=right>".$ingradient_amount[$i]."</td>". "<td align=left>".$ingradient_unit[$i]."</td>"."<td align=right>".$ingradcost."</td>";
+        echo "</tr>";
+    }
+
+    // echo $ingradientString;
+    $totalcost = $netcost + (($netcost*20)/100);
+
+    echo "<tr>";
+    echo "<td colspan=3> </td>". "<td align=right><b>Net Cost = ".number_format($netcost,2)."<br>+20%<br>Total Cost = ".number_format($totalcost,2)."</b></td>";
+    echo "</tr>";
 
 	
 	?>
 
 
-    <!--social media section starts here-->
+   
+
+
+
+
+
+
+
+
+
+
+            
+            </table>
+
+
+
+
+
+        
+
+        <form method="get" action="order.php">
+            
+            
+            
+            <input type="submit" value="Place order">
+        </form>
+        
+
+        
+            
+       </div>
+
+
+
+
+        <!--social media section starts here-->
     <section class="social">
         <div class="container text-center">
             <ul>
@@ -95,6 +238,11 @@
         </div>
     </section>
     <!--social media section ends here-->
+
+
+
+
+
 
     <!--footer section starts here-->
     <section class="footer">
