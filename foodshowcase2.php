@@ -181,6 +181,7 @@
                             <h2 class='p-text'>".$row["fname"]."</h2> <br>
                             <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
                             <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
+                            <h3 class='p-text'> Price: ".$row["fprice"]." taka</h3>
 
                         </div>
                     </div>

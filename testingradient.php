@@ -122,10 +122,20 @@
 
 
 	<?php
+
+session_start();
 	include('connect.php');
+
 	$ingradient_name = $_POST['ingradient_name'];
 	$ingradient_amount = $_POST['ingradient_amount'];
 	$ingradient_unit = $_POST['ingradient_unit'];
+
+
+    $fid = $_POST['fid'];
+    $fname = $_POST['fname'];
+    $fcategory = $_POST['fcategory'];
+    
+
 
     ?>
 
@@ -177,6 +187,16 @@
     echo "<td colspan=3> </td>". "<td align=right><b>Net Cost = ".number_format($netcost,2)."<br>+20%<br>Total Cost = ".number_format($totalcost,2)."</b></td>";
     echo "</tr>";
 
+    $_SESSION['fid'] = $fid;
+    $_SESSION['fname'] = $fname;
+    $_SESSION['fcategory'] = $fcategory;
+    $_SESSION['ingradientString'] = $ingradientString;
+    $_SESSION['totalcost'] = $totalcost;
+
+    
+
+
+
 	
 	?>
 
@@ -201,11 +221,11 @@
 
         
 
-        <form method="get" action="order.php">
+        <form method="get" action="foodupload.php">
             
             
             
-            <input type="submit" value="Place order">
+            <input type="submit" value="Create Food">
         </form>
         
 
