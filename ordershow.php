@@ -89,27 +89,39 @@
             <table id="customers" >
             <tr>
                 <th>Order ID</th>
-                <th>Flour quantity</th>
-                <th>Egg quantity</th>
-                <th>Oil quantity</th>
-                <th>Baking Powder quantity</th>
+                <th>Food Name</th>
+                <th>Food Category</th>
+                <th>Ingradients</th>
                 <th>Total Cost</th>
                 <th>Time</th>
+                <th colspan='2'>Action</th>
             </tr>
+
+
+   
+
+
             <?php
                 include('connect.php');
-                $sql= "select id, flourq, eggq, oilq, bpowderq, totalcost from ordertable";
+                $sql= "SELECT *
+                FROM food
+                INNER JOIN ordertable
+                ON food.id = ordertable.fid;";
                 $result = $conn->query($sql);
 
                 if ($result -> num_rows>0) {
                     while ($row = $result->fetch_assoc()) {
                         echo"<tr>";
                         echo"<td>".$row["id"]."</td>".
-                        "<td>".$row["flourq"]."</td>".
-                        "<td>".$row["eggq"]."</td>".
-                        "<td>".$row["oilq"]."</td>".
-                        "<td>".$row["bpowderq"]."</td>".
-                        "<td>".$row["totalcost"]."</td>"
+                        "<td>".$row["fname"]."</td>".
+                        "<td>".$row["fcategory"]."</td>".
+                        "<td>".$row["fingradient"]."</td>".
+                        "<td>".$row["fprice"]."</td>".
+                        "<td>".$row["time"]."</td>". 
+                        "<td> <a href= 'confirmorder.php?oid=".$row["id"]."'><button style='color: white; background-color: green; padding:5px;  border-radius: 5px; border: none;'>Accept</button> </a> </td>". 
+                        "<td> <a href= 'cancelorder.php?oid=".$row["id"]."'><button style='color: white; background-color: red; padding:5px;  border-radius: 5px; border: none;'>Cancel</button> </a> </td>"
+
+
                         ;
 
                     }

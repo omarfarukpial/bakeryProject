@@ -182,6 +182,11 @@
                             <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
                             <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
                             <h3 class='p-text'> Price: ".$row["fprice"]." taka</h3>
+                            <a href = order.php?id=".$row["id"]."> 
+                            <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'>Place Order</button>
+                            
+                            </a>
+                            
 
                         </div>
                     </div>
@@ -196,6 +201,8 @@
 ?>
 
 </div>
+
+
         
        
         
