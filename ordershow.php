@@ -45,40 +45,18 @@
     
     <body>
         <!--Navbar section starts here--> 
-        <section class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <img src="logo.jpg" alt="logo" class="img-responsive">
-                </div>
-                
-                <div class="menu text-right">
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="product.php">Product</a>
-                        </li>
-                        <li>
-                            <a href="purchaseform.php">Purchase</a>
-                        </li>
-                        <li>
-                            <a href="stock.php">Stock</a>
-                        </li>
-                        <li>
-                            <a href="#">Foods</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="clearfix"></div>
-          
-            </div>
-        </section>
+        <?php
+            include('navbar.php');
+        ?>
         <!--Navbar section ends here-->
+
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
 
 
        <div style= "text-align: center">
@@ -91,6 +69,7 @@
                 <th>Order ID</th>
                 <th>Food Name</th>
                 <th>Food Category</th>
+                <th>Food Quantity</th>
                 <th>Ingradients</th>
                 <th>Total Cost</th>
                 <th>Time</th>
@@ -115,8 +94,9 @@
                         echo"<td>".$row["id"]."</td>".
                         "<td>".$row["fname"]."</td>".
                         "<td>".$row["fcategory"]."</td>".
+                        "<td>".$row["fquantity"]."</td>".
                         "<td>".$row["fingradient"]."</td>".
-                        "<td>".$row["fprice"]."</td>".
+                        "<td>".$row["fprice"]*$row["fquantity"]."</td>".
                         "<td>".$row["time"]."</td>". 
                         "<td> <a href= 'confirmorder.php?oid=".$row["id"]."'><button style='color: white; background-color: green; padding:5px;  border-radius: 5px; border: none;'>Accept</button> </a> </td>". 
                         "<td> <a href= 'cancelorder.php?oid=".$row["id"]."'><button style='color: white; background-color: red; padding:5px;  border-radius: 5px; border: none;'>Cancel</button> </a> </td>"

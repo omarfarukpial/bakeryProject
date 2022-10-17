@@ -113,46 +113,24 @@
     
     <body>
         <!--Navbar section starts here--> 
-        <section class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <img src="logo.jpg" alt="logo" class="img-responsive">
-                </div>
-                
-                <div class="menu text-right">
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="product.php">Product</a>
-                        </li>
-                        <li>
-                            <a href="purchaseform.php">Purchase</a>
-                        </li>
-                        <li>
-                            <a href="stock.php">Stock</a>
-                        </li>
-                        <li>
-                            <a href="#">Foods</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="clearfix"></div>
-          
-            </div>
-        </section>
+        <?php
+
+            include('navbar.php');
+
+        ?>
         <!--Navbar section ends here-->
+
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
 
 
         
-    <button class="cfbtn" onclick="window.location.href='createfood.php'" style = "display: flex; align-items: center;">Create Food</button>
-
-       
+   
 <br>
 <br>
 
@@ -182,7 +160,7 @@
                             <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
                             <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
                             <h3 class='p-text'> Price: ".$row["fprice"]." taka</h3>
-                            <a href = order.php?id=".$row["id"]."> 
+                            <a href = orderquantity.php?fid=".$row["id"]."> 
                             <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'>Place Order</button>
                             
                             </a>

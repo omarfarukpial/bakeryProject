@@ -12,44 +12,11 @@
 </head>
 
 <body>
-    <!--Navbar section starts here-->
-    <section class="navbar">
-        <div class="container" style="font-size: x-large">
-            <div class="logo">
-                <img src="logo.jpg" alt="logo" class="img-responsive">
-            </div>
+   <?php
 
-            <div class="menu text-right">
-                <ul>
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="product.php">Product</a>
-                    </li>
-                    <li>
-                        <a href="purchaseform.php">Purchase</a>
-                    </li>
-                    <li>
-                        <a href="stock.php">Stock</a>
-                    </li>
-                    <li>
-                        <a href="foodform.php">Create Food</a>
-                    </li>
-                    <li>
-                        <a href="ordershow.php">Order</a>
-                    </li>
-                    <li>
-                        <a href="foodshowcase2.php">Food Showcase</a>
-                    </li>
-                </ul>
-            </div>
+    include('navbar.php');
 
-            <div class="clearfix"></div>
-
-        </div>
-    </section>
-    <!--Navbar section ends here-->
+   ?>
 
     <!--food search section starts here-->
     <section class="food-search text-center">

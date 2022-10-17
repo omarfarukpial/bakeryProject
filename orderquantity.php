@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Food Showcase</title>
+        <title>Order Quantity</title>
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
@@ -76,6 +76,37 @@
                 font-size: x-large;
                 }
 
+                .clinicliststyle {
+                display:flex;
+                justify-content: space-evenly;
+                
+                margin-left: 50px;
+                margin-right: 50px;
+                margin-bottom: 50px;
+                border-radius: 20px;
+
+
+                }
+
+                .cbody {
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    margin: 20px;
+                    width: 250px;
+                    height: 300px;
+                    padding: 20px;
+                    transition-duration: .5s;
+                    transition-timing-function: ease;
+                    transition-delay: .1s;
+                    transition-timing-function: ease-in-out;
+                    border-radius:15px;
+
+                }
+
+                .cbody:hover {
+                    background-image: linear-gradient(to top, red, orange);
+                    
+                }
+
         </style>
             
     </head>
@@ -84,57 +115,60 @@
         <!--Navbar section starts here--> 
         <?php
 
-        include('navbar.php');
+            include('navbar.php');
+            include('connect.php');
+            $fid = $_GET['fid'];
 
         ?>
         <!--Navbar section ends here-->
 
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
+
 
         
-    <button class="cfbtn" onclick="window.location.href='createfood.php'" style = "display: flex; align-items: center;">Create Food</button>
-
-       
+   
 <br>
 <br>
 
      
-    <h1>Food Table</h1>
-
-<table id="customers" >
-<tr>
-    <th>Food ID</th>
-    <th>Food Name</th>
-    <th>Food Category</th>
-    <th>Ingradients</th>
-</tr>
-<?php
-    include('connect.php');
-    $sql= "select * from food";
-    $result = $conn->query($sql);
-
-    if ($result -> num_rows>0) {
-        while ($row = $result->fetch_assoc()) {
-            echo"<tr>";
-            echo"<td>".$row["fid"]."</td>".
-            "<td>".$row["fname"]."</td>".
-            "<td>".$row["fcategory"]."</td>".
-            "<td>".$row["fingradient"]."</td>"
-            ;
-
-        }
-        echo"</tr>";
-    }
-    else {
-        echo "0 result";
-    }
+    <h1>Select Order Quantity</h1>
 
 
-
-
-?>
-
-</table>
+    <div class="container">
         
+        <form action="order.php" method = "post"> 
+
+            <input type="hidden" id="fid" name="fid" value="<?php echo $fid?>" >
+
+
+
+            <label for="orderquantity">Choose Order Quantity</label>
+            <select id="orderquantity" name="orderquantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+
+
+    
        
         
        

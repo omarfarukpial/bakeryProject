@@ -4,43 +4,12 @@
         <meta charset="UTF-8">
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bakery Website</title>
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+        <title>Manage Food</title>
+
+
+
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
-
-        <style>
-            #customers {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 70%;
-            margin-left: 200px;
-                
-            
-            
-            }
-
-            #customers td, #customers th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            }
-
-            #customers tr:nth-child(even){background-color: #f2f2f2;}
-
-            #customers tr:hover {background-color: #ddd;}
-
-            #customers th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #04AA6D;
-            color: white;
-            }
-            .container{
-                font-size: x-large;
-            }
-        </style>
-            
     </head>
     
     <body>
@@ -51,8 +20,6 @@ include('navbar.php');
 
 ?>
         <!--Navbar section ends here-->
-
-
         <div class="container">
             
             <div>
@@ -62,50 +29,22 @@ include('navbar.php');
         </div>
 
 
-       <div style= "text-align: center">
+        <div class="container">
+            <div class="redirect">
+                <a href="foodshowcase2.php" role="button">Food Showcase</a>
+                <a href="createfood.php" role="button">Create Food</a>
+                <a href="ordershow.php" role="button">Order List</a>
            
 
-           <h1>Ingradients Table</h1>
 
-            <table id="customers" >
-            <tr>
-                <th>Ingradient ID</th>
-                <th>Ingradient Name</th>
-                <th>Unit Type</th>
-                <th>Ingradient Price</th>
-            </tr>
-            <?php
-                include('connect.php');
-                $sql= "select pid,pname, unit, price from product";
-                $result = $conn->query($sql);
+            </div>
 
-                if ($result -> num_rows>0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo"<tr>";
-                        echo"<td>".$row["pid"]."</td>".
-                        "<td>".$row["pname"]."</td>".
-                        "<td>".$row["unit"]."</td>".
-                        "<td>".$row["price"]."</td>"
-                        ;
-
-                    }
-                    echo"</tr>";
-                }
-                else {
-                    echo "0 result";
-                }
+        </div>
 
 
 
 
-            ?>
-            
-            </table>
 
-
-       </div>
-        
-       
         
        
         <!--social media section starts here--> 

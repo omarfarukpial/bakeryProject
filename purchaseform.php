@@ -61,40 +61,25 @@
     
     <body>
         <!--Navbar section starts here--> 
-        <section class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <img src="logo.jpg" alt="logo" class="img-responsive">
-                </div>
-                
-                <div class="menu text-right">
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="product.php">Product</a>
-                        </li>
-                        <li>
-                            <a href="purchase.php">Purchase</a>
-                        </li>
-                        <li>
-                            <a href="stock.php">Stock</a>
-                        </li>
-                        <li>
-                            <a href="#">Foods</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="clearfix"></div>
-          
-            </div>
-        </section>
+        <?php
+
+        include('navbar.php');
+
+        ?>
         <!--Navbar section ends here-->
+
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
+
+
+
+
+
         <?php
         include('connect.php');
 
@@ -106,9 +91,9 @@
         <div style="display: flex">
             <div class="inform" style="margin-left:50px; width:40%">
                 <form action="purchaseformup.php" method = "post">
-                    <label for="pid">Product Name</label>
+                    <label for="pid">Ingradient Name</label>
                     <select name="pid" onchange="showUser(this.value)" >
-                        <option disable selected> Select Product</option>
+                        <option disable selected> Select Ingradient</option>
                         <?php
                             $sql = 'select pid,pname from product';
                             $res = $conn->query($sql);
@@ -121,7 +106,7 @@
                         ?>
                     </select>
 
-                    <label for="quantity">Product Quantity</label>
+                    <label for="quantity">Ingradient Quantity</label>
                     <input type="text" id="quantity" name="quantity" placeholder="Product Quantity">
 
                                         
@@ -134,11 +119,11 @@
             </div>
 
             <div style="text-align: center; width: 50%">
-                <h4>Product Information</h4>
+                <h4>Ingradient Information</h4>
                 <table>
                     <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
+                        <th>Ingradient ID</th>
+                        <th>Ingradient Name</th>
                         <th>Unit</th>
                         <th>Price</th>
                     </tr>
