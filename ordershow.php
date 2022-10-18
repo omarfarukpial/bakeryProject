@@ -45,39 +45,9 @@
     
     <body>
         <!--Navbar section starts here--> 
-        <section class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <img src="logo.jpg" alt="logo" class="img-responsive">
-                </div>
-                
-                <div class="menu text-right">
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="product.php">Product</a>
-                        </li>
-                        <li>
-                            <a href="purchaseform.php">Purchase</a>
-                        </li>
-                        <li>
-                            <a href="stock.php">Stock</a>
-                        </li>
-                        <li>
-                            <a href="#">Foods</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="clearfix"></div>
-          
-            </div>
-        </section>
+        <?php 
+    include('navbar.php');
+    ?>
         <!--Navbar section ends here-->
 
 

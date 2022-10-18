@@ -45,55 +45,25 @@
     
     <body>
         <!--Navbar section starts here--> 
-        <section class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <img src="logo.jpg" alt="logo" class="img-responsive">
-                </div>
-                
-                <div class="menu text-right">
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="product.php">Product</a>
-                        </li>
-                        <li>
-                            <a href="purchaseform.php">Purchase</a>
-                        </li>
-                        <li>
-                            <a href="stock.php">Stock</a>
-                        </li>
-                        <li>
-                            <a href="#">Foods</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="clearfix"></div>
-          
-            </div>
-        </section>
+        <?php 
+            include('navbar.php');
+        ?>
         <!--Navbar section ends here-->
 
 
        <div style= "text-align: center">
            <form action="productform.php">
-           <input type="submit" value="Add Product" style="font-size: 25px;color: blue;">
+           <input type="submit" value="Add Ingradients" style="font-size: 25px;color: blue;">
            </form>
 
-           <h1>Product Table</h1>
+           <h1>Ingradients Table</h1>
 
             <table id="customers" >
             <tr>
                 <th>Poduct ID</th>
-                <th>Product Name</th>
+                <th>Ingradient Name</th>
                 <th>Unit Type</th>
-                <th>Product Price</th>
+                <th>Ingradient Price</th>
             </tr>
             <?php
                 include('connect.php');
@@ -103,10 +73,10 @@
                 if ($result -> num_rows>0) {
                     while ($row = $result->fetch_assoc()) {
                         echo"<tr>";
-                        echo"<td>".$row["pid"]."</td>".
-                        "<td>".$row["pname"]."</td>".
+                        echo"<td align=left>".$row["pid"]."</td>".
+                        "<td align=left>".$row["pname"]."</td>".
                         "<td>".$row["unit"]."</td>".
-                        "<td>".$row["price"]."</td>"
+                        "<td align=right>".number_format($row["price"],2)."</td>"
                         ;
 
                     }
