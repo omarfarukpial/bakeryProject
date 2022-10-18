@@ -45,10 +45,24 @@
     
     <body>
         <!--Navbar section starts here--> 
+<<<<<<< HEAD
         <?php 
     include('navbar.php');
     ?>
+=======
+        <?php
+            include('navbar.php');
+        ?>
+>>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
         <!--Navbar section ends here-->
+
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
 
 
        <div style= "text-align: center">
@@ -61,6 +75,7 @@
                 <th>Order ID</th>
                 <th>Food Name</th>
                 <th>Food Category</th>
+                <th>Food Quantity</th>
                 <th>Ingradients</th>
                 <th>Total Cost</th>
                 <th>Time</th>
@@ -85,8 +100,9 @@
                         echo"<td>".$row["id"]."</td>".
                         "<td>".$row["fname"]."</td>".
                         "<td>".$row["fcategory"]."</td>".
+                        "<td>".$row["fquantity"]."</td>".
                         "<td>".$row["fingradient"]."</td>".
-                        "<td>".$row["fprice"]."</td>".
+                        "<td>".$row["fprice"]*$row["fquantity"]."</td>".
                         "<td>".$row["time"]."</td>". 
                         "<td> <a href= 'confirmorder.php?oid=".$row["id"]."'><button style='color: white; background-color: green; padding:5px;  border-radius: 5px; border: none;'>Accept</button> </a> </td>". 
                         "<td> <a href= 'cancelorder.php?oid=".$row["id"]."'><button style='color: white; background-color: red; padding:5px;  border-radius: 5px; border: none;'>Cancel</button> </a> </td>"

@@ -89,10 +89,18 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <!-- Navbar include  -->
     <?php 
     include('navbar.php');
     ?>
+=======
+   <?php
+
+    include('navbar.php');
+
+   ?>
+>>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
 
     <!--food search section starts here-->
     <section class="food-search text-center">

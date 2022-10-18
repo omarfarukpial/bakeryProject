@@ -44,16 +44,32 @@
     
     <body>
         <!--Navbar section starts here--> 
+<<<<<<< HEAD
         <?php 
     include('navbar.php');
     ?>
+=======
+        <?php
+
+include('navbar.php');
+
+?>
+>>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
         <!--Navbar section ends here-->
+
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
 
 
        <div style= "text-align: center">
            
 
-           <h1>Stocked items</h1>
+           <h1>Stocked Ingradient Items</h1>
 
             <table id="customers"  >
             <tr>

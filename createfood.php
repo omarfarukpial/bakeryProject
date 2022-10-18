@@ -94,10 +94,26 @@
     
     <body>
         <!--Navbar section starts here--> 
+<<<<<<< HEAD
         <?php 
     include('navbar.php');
     ?>
+=======
+        <?php
+
+include('navbar.php');
+
+?>
+>>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
         <!--Navbar section ends here-->
+
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
 
 
    

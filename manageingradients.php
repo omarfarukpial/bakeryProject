@@ -4,68 +4,22 @@
         <meta charset="UTF-8">
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bakery Website</title>
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+        <title>Stock</title>
+
+
+
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
-
-        <style>
-            #customers {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 70%;
-            margin-left: 200px;
-                
-            
-            
-            }
-
-            #customers td, #customers th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            }
-
-            #customers tr:nth-child(even){background-color: #f2f2f2;}
-
-            #customers tr:hover {background-color: #ddd;}
-
-            #customers th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #04AA6D;
-            color: white;
-            }
-            .container{
-                font-size: x-large;
-            }
-        </style>
-            
     </head>
     
     <body>
         <!--Navbar section starts here--> 
-<<<<<<< HEAD
-        <?php 
-            include('navbar.php');
-        ?>
-        <!--Navbar section ends here-->
-
-
-       <div style= "text-align: center">
-           <form action="productform.php">
-           <input type="submit" value="Add Ingradients" style="font-size: 25px;color: blue;">
-           </form>
-
-=======
         <?php
 
 include('navbar.php');
 
 ?>
         <!--Navbar section ends here-->
-
-
         <div class="container">
             
             <div>
@@ -75,55 +29,22 @@ include('navbar.php');
         </div>
 
 
-       <div style= "text-align: center">
-           
+        <div class="container">
+            <div class="redirect">
+                <a href="product.php" role="button">Ingradients List</a>
+                <a href="productform.php" role="button">Add Ingradients</a>
+                <a href="purchaseform.php" role="button">Purchase Ingradients</a>
+                <a href="stock.php" role="button">Ingradients Stock</a>
 
->>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
-           <h1>Ingradients Table</h1>
 
-            <table id="customers" >
-            <tr>
-<<<<<<< HEAD
-                <th>Poduct ID</th>
-=======
-                <th>Ingradient ID</th>
->>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
-                <th>Ingradient Name</th>
-                <th>Unit Type</th>
-                <th>Ingradient Price</th>
-            </tr>
-            <?php
-                include('connect.php');
-                $sql= "select pid,pname, unit, price from product";
-                $result = $conn->query($sql);
+            </div>
 
-                if ($result -> num_rows>0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo"<tr>";
-                        echo"<td align=left>".$row["pid"]."</td>".
-                        "<td align=left>".$row["pname"]."</td>".
-                        "<td>".$row["unit"]."</td>".
-                        "<td align=right>".number_format($row["price"],2)."</td>"
-                        ;
-
-                    }
-                    echo"</tr>";
-                }
-                else {
-                    echo "0 result";
-                }
+        </div>
 
 
 
 
-            ?>
-            
-            </table>
 
-
-       </div>
-        
-       
         
        
         <!--social media section starts here--> 

@@ -114,16 +114,30 @@
     
     <body>
         <!--Navbar section starts here--> 
+<<<<<<< HEAD
         <?php 
     include('navbar.php');
     ?>
+=======
+        <?php
+
+            include('navbar.php');
+
+        ?>
+>>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
         <!--Navbar section ends here-->
+
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
+
+        </div>
 
 
         
-    <button class="cfbtn" onclick="window.location.href='createfood.php'" style = "display: flex; align-items: center;">Create Food</button>
-
-       
+   
 <br>
 <br>
 
@@ -153,7 +167,7 @@
                             <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
                             <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
                             <h3 class='p-text'> Price: ".$row["fprice"]." taka</h3>
-                            <a href = order.php?id=".$row["id"]."> 
+                            <a href = orderquantity.php?fid=".$row["id"]."> 
                             <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'>Place Order</button>
                             </a>
                             <br>

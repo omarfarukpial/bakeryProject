@@ -45,20 +45,36 @@
     
     <body>
         <!--Navbar section starts here--> 
+<<<<<<< HEAD
         <?php 
     include('navbar.php');
     ?>
+=======
+        <?php
+
+include('navbar.php');
+
+?>
+>>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
         <!--Navbar section ends here-->
 
+        <div class="container">
+            
+            <div>
+                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
+            </div>
 
-        <h3 style = "text-align: center">Product Information</h3>
+        </div>
+
+
+        <h3 style = "text-align: center">Ingradients Information</h3>
 
         <div class="inform">
             <form action="productup.php" method = "post">
-                <label for="pid">Product ID</label>
+                <label for="pid">Ingradients ID</label>
                 <input type="text" id="pid" name="pid" placeholder="Product ID">
 
-                <label for="pname">Product Name</label>
+                <label for="pname">Ingradients Name</label>
                 <input type="text" id="pname" name="pname" placeholder="Product Name">
 
                 <label for="unit">Unit</label>
