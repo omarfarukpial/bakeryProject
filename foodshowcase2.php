@@ -114,17 +114,11 @@
     
     <body>
         <!--Navbar section starts here--> 
-<<<<<<< HEAD
-        <?php 
-    include('navbar.php');
-    ?>
-=======
         <?php
 
             include('navbar.php');
 
         ?>
->>>>>>> 2645a1d74bd82627e4fef59913c381a1748fab8b
         <!--Navbar section ends here-->
 
         <div class="container">
@@ -152,7 +146,9 @@
     
     include('connect.php');
 
-    $sql = "SELECT * FROM food";
+    $sql = "SELECT foodshowcase.fid, foodshowcase.fquantity as fquantity, food.fid, food.id as id, food.fname as fname, food.fcategory as           fcategory, food.fingradient as fingradient, food.fprice as fprice 
+            FROM foodshowcase
+            INNER JOIN food ON foodshowcase.fid = food.fid";
     $result = $conn->query($sql);
     
     
@@ -166,7 +162,8 @@
                             <h2 class='p-text'>".$row["fname"]."</h2> <br>
                             <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
                             <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
-                            <h3 class='p-text'> Price: ".$row["fprice"]." taka</h3>
+                            <h3 class='p-text'> Price: ".$row["fprice"]+($row["fprice"]*30/100)." taka</h3>
+                            <h4 class='p-text'> Available item: ".$row["fquantity"]."</h4>
                             <a href = orderquantity.php?fid=".$row["id"]."> 
                             <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'>Place Order</button>
                             </a>

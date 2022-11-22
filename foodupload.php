@@ -8,7 +8,7 @@ $fid = $_SESSION['fid'];
 $fname = $_SESSION['fname'];
 $fcategory = $_SESSION['fcategory'];
 $ingradientString = $_SESSION['ingradientString'];
-$totalcost = $_SESSION['totalcost'];
+$netcost = $_SESSION['netcost'];
 
 
 // echo $fname;
@@ -19,7 +19,7 @@ $totalcost = $_SESSION['totalcost'];
 
 
 
-$sql = "INSERT INTO food (fid, fname,  fcategory, fingradient, fprice) VALUES ('$fid','$fname','$fcategory','$ingradientString', '$totalcost')";
+$sql = "INSERT INTO food (fid, fname,  fcategory, fingradient, fprice) VALUES ('$fid','$fname','$fcategory','$ingradientString', '$netcost')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";

@@ -4,54 +4,69 @@
         <meta charset="UTF-8">
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bakery Website</title>
+        <title>Prepare Food</title>
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
+            <style>
+                input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                }
 
-        <style>
-            #customers {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 70%;
-            margin-left: 200px;
-                
-            
-            
-            }
+                input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                }
 
-            #customers td, #customers th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            }
+                input[type=submit]:hover {
+                background-color: #45a049;
+                }
 
-            #customers tr:nth-child(even){background-color: #f2f2f2;}
-
-            #customers tr:hover {background-color: #ddd;}
-
-            #customers th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #04AA6D;
-            color: white;
-            }
-            .container{
+                .inform {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                margin: 30px;
+                }
+                .container{
                 font-size: x-large;
             }
+
+            table {
+            margin-left: 30px;
+            width: 80%;
+            border-collapse: collapse;
+            }
+
+            table, td, th {
+            border: 1px solid black;
+            padding: 5px;
+            }
+
+            th {text-align: left;}
         </style>
-            
     </head>
     
     <body>
         <!--Navbar section starts here--> 
         <?php
 
-include('navbar.php');
+        include('navbar.php');
 
-?>
+        ?>
         <!--Navbar section ends here-->
-
 
         <div class="container">
             
@@ -62,49 +77,88 @@ include('navbar.php');
         </div>
 
 
-       <div style= "text-align: center">
-           
-
-           <h1>Ingradients Table</h1>
-
-            <table id="customers" >
-            <tr>
-                <th>Ingradient ID</th>
-                <th>Ingradient Name</th>
-                <th>Unit Type</th>
-                <th>Ingradient Price</th>
-            </tr>
-            <?php
-                include('connect.php');
-                $sql= "select pid,pname, unit, price from product";
-                $result = $conn->query($sql);
-
-                if ($result -> num_rows>0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo"<tr>";
-                        echo"<td align=left>".$row["pid"]."</td>".
-                        "<td align=left>".$row["pname"]."</td>".
-                        "<td>".$row["unit"]."</td>".
-                        "<td align=right>".number_format($row["price"],2)."</td>"
-                        ;
-
-                    }
-                    echo"</tr>";
-                }
-                else {
-                    echo "0 result";
-                }
 
 
 
+        <?php
+        include('connect.php');
 
-            ?>
-            
-            </table>
+        ?>
 
 
-       </div>
+        <h3 style = "text-align: center">Prepare Food</h3>
+
+        <div style="display: flex">
+            <div class="inform" style="margin-left:50px; width:40%">
+                <form action="foodprepareformup.php" method = "post">
+                    <label for="fid">Food Name</label>
+                    <select name="fid" onchange="showUser(this.value)" >
+                        <option disable selected> Select Food</option>
+                        <?php
+                            $sql = 'select fid,fname from food';
+                            $res = $conn->query($sql);
+                            while ($row = $res->fetch_assoc()) {
+                                printf(
+                                    '<option value="%s">%s', $row['fid'], $row['fname']
+                                );
+                            }
+
+                        ?>
+                    </select>
+
+                    <label for="fquantity">Food Quantity</label>
+                    <input type="text" id="fquantity" name="fquantity" placeholder="Food Quantity">
+
+                                        
+                    </select>
+
+                    
+                
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+            <div style="text-align: center; width: 50%">
+                <h4>Food Information</h4>
+                <table>
+                    <tr>
+                        <th>Food ID</th>
+                        <th>Food Name</th>
+                        <th>Food Category</th>
+                        <th>Ingradients</th>
+                        <th>Net Cost</th>
+                    </tr>
+                    <tr id = "str1">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                   
+                </table>
+
+            </div>
+
+        </div>
         
+
+
+        <script>
+            function showUser(str) {
+            
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("str1").innerHTML = this.responseText;
+                }
+                };
+                xmlhttp.open("GET","foodinfo.php?q="+str,true);
+                xmlhttp.send();
+        
+            }
+        </script>
        
         
        

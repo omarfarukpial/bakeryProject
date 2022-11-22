@@ -16,6 +16,9 @@
                     <li>
                         <a href="managefood.php">Manage Food</a>
                     </li>
+                    <li>
+                        <a href="foodshowcase2.php">Food Showcase</a>
+                    </li>
                 </ul>
             </div>
 

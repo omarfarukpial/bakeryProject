@@ -150,17 +150,22 @@ session_start();
     }
 
     // echo $ingradientString;
-    $totalcost = $netcost + (($netcost*20)/100);
+
+
+    //$totalcost = $netcost + (($netcost*20)/100);
+
+
+    // ."<br>+20%<br>Total Cost = ".number_format($totalcost,2).
 
     echo "<tr>";
-    echo "<td colspan=3> </td>". "<td align=right><b>Net Cost = ".number_format($netcost,2)."<br>+20%<br>Total Cost = ".number_format($totalcost,2)."</b></td>";
+    echo "<td colspan=3> </td>". "<td align=right><b>Net Cost = ".number_format($netcost,2)."</b></td>";
     echo "</tr>";
 
     $_SESSION['fid'] = $fid;
     $_SESSION['fname'] = $fname;
     $_SESSION['fcategory'] = $fcategory;
     $_SESSION['ingradientString'] = $ingradientString;
-    $_SESSION['totalcost'] = $totalcost;
+    $_SESSION['netcost'] = $netcost;
 
     
 

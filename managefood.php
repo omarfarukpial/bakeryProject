@@ -31,8 +31,8 @@ include('navbar.php');
 
         <div class="container">
             <div class="redirect">
-                <a href="foodshowcase2.php" role="button">Food Showcase</a>
-                <a href="createfood.php" role="button">Create Food</a>
+                <a href="addFood.php" role="button">Add New Food</a>
+                <a href="prepareFood.php" role="button">Prepare Food</a>
                 <a href="ordershow.php" role="button">Order List</a>
            
 
