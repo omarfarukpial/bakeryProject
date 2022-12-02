@@ -7,18 +7,18 @@ $sql= "SELECT * From foodshowcase
         WHERE fid = '$fid' ";
 $result = $conn->query($sql);
 
-// $sqlcost = "SELECT price as p, pname as n From product
-//             WHERE pid = '$pid'";
-// $cost = $conn->query($sqlcost);
+// $foodInfoFetchSql = "SELECT * FROM food 
+//                 WHERE fid = '$fid' ";
 
-// $row = $cost->fetch_assoc();
-// $pcost = $row['p'];
-// $pname = $row['n'];
+// $foodInfoFetch = $conn->query($foodInfoFetchSql)->fetch_assoc();
 
 
 
-// $totalcost = $pcost*$pquantity;
-
+// $ing = explode("<br>",$foodInfoFetch['fingradient']);
+// foreach ($ing as $p) {
+//     echo $p;
+//     echo "<br>";
+// }
 
 
 

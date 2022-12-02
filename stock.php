@@ -70,7 +70,7 @@ include('navbar.php');
                 <th>Ingradient ID</th>
                 <th>Ingradient Name</th>
                 <th>Ingradient Quantity</th>
-                <th>Ingradient Unit Type</th>
+                <!-- <th>Ingradient Unit Type</th> -->
                 <th>Total Ingradient Cost</th>
             </tr>
             <?php
@@ -85,8 +85,8 @@ include('navbar.php');
                         echo"<tr>";
                         echo"<td>".$row["b_pid"]."</td>".
                         "<td align=left>".$row["a_name"]."</td>".
-                        "<td align=right>".$row["b_pquantity"]."</td>".
-                        "<td >".$row["a_unit"]."</td>".
+                        "<td align=right>".$row["b_pquantity"]." ".$row["a_unit"]."</td>".
+                        // "<td >".$row["a_unit"]."</td>".
                         "<td align=right>".number_format($row["b_pcost"],2)."</td>"
                         ;
 

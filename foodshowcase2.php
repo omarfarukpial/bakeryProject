@@ -162,7 +162,7 @@
                             <h2 class='p-text'>".$row["fname"]."</h2> <br>
                             <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
                             <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
-                            <h3 class='p-text'> Price: ".$row["fprice"]+($row["fprice"]*30/100)." taka</h3>
+                            <h3 class='p-text'> Price: ".((double)$row["fprice"]+((double)$row["fprice"]*30/100))." taka</h3>
                             <h4 class='p-text'> Available item: ".$row["fquantity"]."</h4>
                             <a href = orderquantity.php?fid=".$row["id"]."> 
                             <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'>Place Order</button>
