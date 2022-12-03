@@ -9,6 +9,7 @@ $fname = $_SESSION['fname'];
 $fcategory = $_SESSION['fcategory'];
 $ingradientString = $_SESSION['ingradientString'];
 $netcost = $_SESSION['netcost'];
+$ingID = $_SESSION['ingID'];
 
 
 // echo $fname;
@@ -16,10 +17,12 @@ $netcost = $_SESSION['netcost'];
 // echo $ingradientString;
 // echo $totalcost;
 
+// echo $ingID;
 
 
 
-$sql = "INSERT INTO food (fid, fname,  fcategory, fingradient, fprice) VALUES ('$fid','$fname','$fcategory','$ingradientString', '$netcost')";
+
+$sql = "INSERT INTO food (fid, fname,  fcategory, fingradient, ingID, fprice) VALUES ('$fid','$fname','$fcategory','$ingradientString', '$ingID', '$netcost')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
@@ -30,7 +33,7 @@ if ($conn->query($sql) === TRUE) {
     $conn->close();
 
 
-    header("Location: foodshowcase2.php");
+    header("Location: managefood.php");
 
 
 

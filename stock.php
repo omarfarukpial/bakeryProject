@@ -69,9 +69,9 @@ include('navbar.php');
             <tr>
                 <th>Ingradient ID</th>
                 <th>Ingradient Name</th>
-                <th>Ingradient Quantity</th>
+                <th>Quantity</th>
                 <!-- <th>Ingradient Unit Type</th> -->
-                <th>Total Ingradient Cost</th>
+                <th>Total Cost</th>
             </tr>
             <?php
                 include('connect.php');

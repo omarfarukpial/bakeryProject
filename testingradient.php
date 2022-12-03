@@ -134,16 +134,21 @@ session_start();
     <?php
 
     $ingradientString="";
+    $ingID = "";
     $netcost = 0;
 
 	$len = count($ingradient_name);
     for ( $i= 0; $i<$len; $i++) {
 
-        $ingradcostdb = ($conn->query("SELECT * FROM stock WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['punitcost'];
+        $ingradcostdb = ($conn->query("SELECT * FROM product WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['price'];
         $ingradcost = $ingradient_amount[$i] * $ingradcostdb;
         $netcost += $ingradcost;
 
         $ingradientString = $ingradientString.$ingradient_name[$i]." = ".$ingradient_amount[$i]." ".$ingradient_unit[$i]."<br>";
+
+        $ingIDdb = ($conn->query("SELECT * FROM product WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['pid'];
+        $ingID = $ingID.$ingIDdb." ".$ingradient_amount[$i]." ";
+
         echo "<tr>";
         echo "<td align=left>".$ingradient_name[$i]."</td>". "<td align=right>".$ingradient_amount[$i]."</td>". "<td align=left>".$ingradient_unit[$i]."</td>"."<td align=right>".$ingradcost."</td>";
         echo "</tr>";
@@ -166,6 +171,7 @@ session_start();
     $_SESSION['fcategory'] = $fcategory;
     $_SESSION['ingradientString'] = $ingradientString;
     $_SESSION['netcost'] = $netcost;
+    $_SESSION['ingID'] = $ingID;
 
     
 
