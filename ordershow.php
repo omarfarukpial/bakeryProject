@@ -88,7 +88,8 @@
                 $sql= "SELECT *
                 FROM food
                 INNER JOIN ordertable
-                ON food.id = ordertable.fid;";
+                ON food.id = ordertable.fid
+                WHERE ordertable.status = 'pending'";
                 $result = $conn->query($sql);
 
                 if ($result -> num_rows>0) {

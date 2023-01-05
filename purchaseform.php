@@ -109,8 +109,9 @@
                     <label for="quantity">Ingradient Quantity</label>
                     <input type="text" id="quantity" name="quantity" placeholder="Product Quantity">
 
-                                        
-                    </select>
+                       
+                    
+                   
 
                     
                 

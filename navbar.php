@@ -19,6 +19,9 @@
                     <li>
                         <a href="foodshowcase2.php">Food Showcase</a>
                     </li>
+                    <li>
+                        <a href="reportShow.php">Report</a>
+                    </li>
                 </ul>
             </div>
 
