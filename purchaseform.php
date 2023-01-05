@@ -91,9 +91,9 @@
         <div style="display: flex">
             <div class="inform" style="margin-left:50px; width:40%">
                 <form action="purchaseformup.php" method = "post">
-                    <label for="pid">Ingradient Name</label>
+                    <label for="pid">Ingredient Name</label>
                     <select name="pid" onchange="showUser(this.value)" >
-                        <option disable selected> Select Ingradient</option>
+                        <option disable selected> Select Ingredient</option>
                         <?php
                             $sql = 'select pid,pname from product';
                             $res = $conn->query($sql);
@@ -106,7 +106,7 @@
                         ?>
                     </select>
 
-                    <label for="quantity">Ingradient Quantity</label>
+                    <label for="quantity">Ingredient Quantity</label>
                     <input type="text" id="quantity" name="quantity" placeholder="Product Quantity">
 
                                         
@@ -119,11 +119,11 @@
             </div>
 
             <div style="text-align: center; width: 50%">
-                <h4>Ingradient Information</h4>
+                <h4>Ingredient Information</h4>
                 <table>
                     <tr>
-                        <th>Ingradient ID</th>
-                        <th>Ingradient Name</th>
+                        <th>Ingredient ID</th>
+                        <th>Ingredient Name</th>
                         <th>Unit</th>
                         <th>Price</th>
                     </tr>

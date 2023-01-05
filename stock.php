@@ -63,12 +63,12 @@ include('navbar.php');
        <div style= "text-align: center">
            
 
-           <h1>Stocked Ingradient Items</h1>
+           <h1>Stocked Ingredient Items</h1>
 
             <table id="customers"  >
             <tr>
-                <th>Ingradient ID</th>
-                <th>Ingradient Name</th>
+                <th>Ingredient ID</th>
+                <th>Ingredient Name</th>
                 <th>Quantity</th>
                 <!-- <th>Ingradient Unit Type</th> -->
                 <th>Total Cost</th>

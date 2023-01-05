@@ -11,7 +11,7 @@
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="manageingradients.php">Manage Ingradients</a>
+                        <a href="manageingradients.php">Manage Ingredients</a>
                     </li>
                     <li>
                         <a href="managefood.php">Manage Food</a>

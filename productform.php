@@ -61,14 +61,14 @@ include('navbar.php');
         </div>
 
 
-        <h3 style = "text-align: center">Ingradients Information</h3>
+        <h3 style = "text-align: center">Ingredients Information</h3>
 
         <div class="inform">
             <form action="productup.php" method = "post">
-                <label for="pid">Ingradients ID</label>
+                <label for="pid">Ingredients ID</label>
                 <input type="text" id="pid" name="pid" placeholder="Product ID">
 
-                <label for="pname">Ingradients Name</label>
+                <label for="pname">Ingredients Name</label>
                 <input type="text" id="pname" name="pname" placeholder="Product Name">
 
                 <label for="unit">Unit</label>

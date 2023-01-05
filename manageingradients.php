@@ -31,10 +31,10 @@ include('navbar.php');
 
         <div class="container">
             <div class="redirect">
-                <a href="product.php" role="button">Ingradients List</a>
-                <a href="productform.php" role="button">Add Ingradients</a>
-                <a href="purchaseform.php" role="button">Purchase Ingradients</a>
-                <a href="stock.php" role="button">Ingradients Stock</a>
+                <a href="product.php" role="button">Ingredients List</a>
+                <a href="productform.php" role="button">Add Ingredients</a>
+                <a href="purchaseform.php" role="button">Purchase Ingredients</a>
+                <a href="stock.php" role="button">Ingredients Stock</a>
 
 
             </div>

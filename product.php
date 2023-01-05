@@ -65,14 +65,14 @@ include('navbar.php');
        <div style= "text-align: center">
            
 
-           <h1>Ingradients Table</h1>
+           <h1>Ingredients Table</h1>
 
             <table id="customers" >
             <tr>
-                <th>Ingradient ID</th>
-                <th>Ingradient Name</th>
+                <th>Ingredient ID</th>
+                <th>Ingredient Name</th>
                 <th>Unit Type</th>
-                <th>Ingradient Price</th>
+                <th>Ingredient Price</th>
             </tr>
             <?php
                 include('connect.php');

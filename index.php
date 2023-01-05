@@ -143,7 +143,7 @@
     <!--Category section ends here-->
 
 
-    <!--social media section starts here-->
+    <!--social media section starts here
     <section class="social">
         <div class="container text-center">
             <ul>
@@ -164,15 +164,15 @@
             </ul>
         </div>
     </section>
-    <!--social media section ends here-->
+    social media section ends here
 
-    <!--footer section starts here-->
+    footer section starts here
     <section class="footer">
         <div class="container">
             <p>All rights reserved Designed by <a href="#">Fariha</a></p>
         </div>
     </section>
-    <!--footer section ends here-->
+    footer section ends here-->
 </body>
 
 </html>
