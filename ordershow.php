@@ -5,11 +5,11 @@
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bakery Website</title>
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
 
-        <style>
+        <!-- <style>
             #customers {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
@@ -39,7 +39,7 @@
             .container{
                 font-size: x-large;
             }
-        </style>
+        </style> -->
             
     </head>
     
@@ -59,13 +59,17 @@
         </div>
 
 
-       <div style= "text-align: center">
+      
+            
+
+            <div class="container-xxl" style="width:100%; margin: auto; ">
            
 
-           <h1>Order List</h1>
+           <h1 style="text-align: center;" class="">Order List</h1>
 
-            <table id="customers" >
-            <tr>
+            <table id=""class=" table table-success table-striped table-borderd text-center  table-hover rounded"style="border-radius: 1em;overflow: hidden; ">
+                <thead class="thead-dark text-center align-middle">
+                <tr>
                 <th>Order ID</th>
                 <th>Food Name</th>
                 <th>Food Category</th>
@@ -75,8 +79,7 @@
                 <th>Time</th>
                 <th colspan='2'>Action</th>
             </tr>
-
-
+                </thead>
    
 
 
@@ -85,7 +88,8 @@
                 $sql= "SELECT *
                 FROM food
                 INNER JOIN ordertable
-                ON food.id = ordertable.fid;";
+                ON food.id = ordertable.fid
+                WHERE ordertable.status = 'pending'";
                 $result = $conn->query($sql);
 
                 if ($result -> num_rows>0) {

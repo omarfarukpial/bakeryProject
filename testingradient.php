@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -92,7 +94,7 @@
 
 	<?php
 
-session_start();
+
 	include('connect.php');
 
 	$ingradient_name = $_POST['ingradient_name'];

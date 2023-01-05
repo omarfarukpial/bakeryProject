@@ -35,6 +35,9 @@ else {
 
 }
 
+$transactionSql = "INSERT INTO transaction(status,amount) VALUES ('buy','$totalcost')";
+$conn->query($transactionSql);
+
 
 
 header("Location: stock.php");

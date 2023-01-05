@@ -5,11 +5,11 @@
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Stock</title>
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
 
-        <style>
+        <!-- <style>
             #customers {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
@@ -38,7 +38,7 @@
             .container{
                 font-size: x-large;
             }
-        </style>
+        </style> -->
             
     </head>
     
@@ -60,19 +60,25 @@ include('navbar.php');
         </div>
 
 
-       <div style= "text-align: center">
+       
+            
+
+
+            <div class="container-xxl" style="width:100%; margin: auto; ">
            
 
-           <h1>Stocked Ingredient Items</h1>
+           <h1 style="text-align: center;" class="">Stocked Ingradient Items</h1>
 
-            <table id="customers"  >
-            <tr>
-                <th>Ingredient ID</th>
-                <th>Ingredient Name</th>
+            <table id=""class=" table table-success table-striped table-borderd text-center  table-hover rounded"style="border-radius: 1em;overflow: hidden; ">
+                <thead class="thead-dark text-center align-middle">
+                <tr>
+                <th>Ingradient ID</th>
+                <th>Ingradient Name</th>
                 <th>Quantity</th>
                 <!-- <th>Ingradient Unit Type</th> -->
                 <th>Total Cost</th>
             </tr>
+                </thead>
             <?php
                 include('connect.php');
                 $sql= "SELECT a.pname as a_name, b.pid as b_pid, b.pquantity as b_pquantity, a.unit as a_unit, b.pcost as b_pcost
