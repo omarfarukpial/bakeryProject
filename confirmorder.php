@@ -68,10 +68,12 @@ $conn->query($transactionSql);
 $removeOrderSql = "UPDATE ordertable SET status = 'accept' WHERE id = '$oid'";
 $conn->query($removeOrderSql);
 
-echo "Order Confirmed!";
+echo "<script>alert('Order Confirmed!')</script>";
 
 
-header("Location: ordershow.php");
+// header("Location: ordershow.php");
+header( "refresh:0; url=ordershow.php" );
+
 
 
 

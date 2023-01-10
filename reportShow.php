@@ -5,7 +5,7 @@
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bakery Website</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
 
@@ -54,13 +54,13 @@
         ?>
         <!--Navbar section ends here-->
 
-        <div class="container">
+        <!-- <div class="container">
             
             <div>
                 <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
             </div>
 
-        </div>
+        </div> -->
 
 
 
@@ -72,13 +72,14 @@
 
         <form  action="reportFetch.php" method="post">
 
-            
+        <div style="margin-top:20px;margin-left:20px;">   
             <label for="datetime">Start Date and Time</label><br>
             <input type="date" id="startdatetime" name="startdatetime"><br>
-           
+        </div>
+        <div style="margin-top:20px;margin-left:20px;margin-bottom:20px;">  
             <label for="datetime">End Date and Time</label><br>
             <input type="date" id="enddatetime" name="enddatetime"><br>
-           
+        </div>
 
 
 
@@ -107,7 +108,7 @@
 
 
 
-        <script>
+        <!-- <script>
             function showReport(str) {
             
                 var xmlhttp = new XMLHttpRequest();
@@ -120,7 +121,7 @@
                 xmlhttp.send();
         
             }
-        </script>
+        </script> -->
            
 
     </body>

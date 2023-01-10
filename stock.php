@@ -51,13 +51,13 @@ include('navbar.php');
 ?>
         <!--Navbar section ends here-->
 
-        <div class="container">
+        <!-- <div class="container">
             
             <div>
                 <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
             </div>
 
-        </div>
+        </div> -->
 
 
        
@@ -67,16 +67,16 @@ include('navbar.php');
             <div class="container-xxl" style="width:100%; margin: auto; ">
            
 
-           <h1 style="text-align: center;" class="">Stocked Ingradient Items</h1>
+           <h1 style="text-align: center;" class="">Stocked Ingredient Items</h1>
 
             <table id=""class=" table table-success table-striped table-borderd text-center  table-hover rounded"style="border-radius: 1em;overflow: hidden; ">
                 <thead class="thead-dark text-center align-middle">
                 <tr>
-                <th>Ingradient ID</th>
-                <th>Ingradient Name</th>
+                <th>Ingredient ID</th>
+                <th>Ingredient Name</th>
                 <th>Quantity</th>
                 <!-- <th>Ingradient Unit Type</th> -->
-                <th>Total Cost</th>
+                <!-- <th>Total Cost</th> -->
             </tr>
                 </thead>
             <?php
@@ -90,10 +90,10 @@ include('navbar.php');
                     while ($row = $result->fetch_assoc()) {
                         echo"<tr>";
                         echo"<td>".$row["b_pid"]."</td>".
-                        "<td align=left>".$row["a_name"]."</td>".
-                        "<td align=right>".$row["b_pquantity"]." ".$row["a_unit"]."</td>".
+                        "<td >".$row["a_name"]."</td>".
+                        "<td >".$row["b_pquantity"]." ".$row["a_unit"]."</td>"
                         // "<td >".$row["a_unit"]."</td>".
-                        "<td align=right>".number_format($row["b_pcost"],2)."</td>"
+                        // "<td align=right>".number_format($row["b_pcost"],2)."</td>"
                         ;
 
                     }

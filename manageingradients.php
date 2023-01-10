@@ -21,13 +21,13 @@ include('navbar.php');
 
 ?>
         <!--Navbar section ends here-->
-        <div class="container">
+        <!-- <div class="container">
             
             <div>
                 <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
             </div>
 
-        </div>
+        </div> -->
 
 
         <div class="container">

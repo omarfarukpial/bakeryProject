@@ -94,7 +94,7 @@
                     margin: 20px;
                     width: 250px;
                     height: 310px;
-                    padding: 20px;
+                    padding: 35px;
                     transition-duration: .5s;
                     transition-timing-function: ease;
                     transition-delay: .1s;
@@ -121,13 +121,13 @@
         ?>
         <!--Navbar section ends here-->
 
-        <div class="container">
+        <!-- <div class="container">
             
             <div>
                 <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
             </div>
 
-        </div>
+        </div> -->
 
 
         

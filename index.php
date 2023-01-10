@@ -116,7 +116,7 @@
             <h2 class="text-center">Featured Foods</h2>
 
             <div class="box3 float-container">
-                <a href="foodshowcase2.php">
+                <a href="">
                 <img src="pizza.jpg" alt="pizza" class="img-responsive img-curve">
             </a>
 
@@ -124,14 +124,14 @@
             </div>
 
             <div class="box3 float-container">
-            <a href="foodshowcase2.php">
+            <a href="">
                 <img src="burger.jpg" alt="burger" class="img-responsive img-curve">
             </a>
                 <h3 class="float-text text-white">Burger</h3>
             </div>
 
             <div class="box3 float-container">
-            <a href="foodshowcase2.php">
+            <a href="">
                 <img src="blck.png" alt="cake" class="img-responsive img-curve">
             </a>
                 <h3 class="float-text text-white">Cake</h3>

@@ -2,7 +2,7 @@
  <section class="navbar">
         <div class="container" style="font-size: x-large">
             <div class="logo">
-                <img src="logo.jpg" alt="logo" class="img-responsive">
+                <img style="border-radius:50%;" src="cuppp.png" alt="logo"  class="img-responsive ">
             </div>
 
             <div class="navmenu text-right">

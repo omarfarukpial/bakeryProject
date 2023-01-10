@@ -5,7 +5,7 @@
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bakery Website</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
 
@@ -53,27 +53,27 @@ include('navbar.php');
         <!--Navbar section ends here-->
 
 
-        <div class="container-xxl">
+        <!-- <div class="container-xxl">
             
             <div>
                 <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
             </div>
 
-        </div>
+        </div> -->
 
 
        <div class="container-xxl" style="width:100%; margin: auto; ">
            
 
-           <h1 style="text-align: center;" class="">Ingradients Table</h1>
+           <h1 style="text-align: center;" class="">Ingredients Table</h1>
 
             <table id=""class=" table table-success table-striped table-borderd text-center  table-hover rounded"style="border-radius: 1em;overflow: hidden; ">
                 <thead class="thead-dark text-center align-middle">
                 <tr class="text-center">
-                <th>Ingradient ID</th>
-                <th>Ingradient Name</th>
+                <th>Ingredient ID</th>
+                <th>Ingredient Name</th>
                 <th>Unit Type</th>
-                <th>Ingradient Price</th>
+                <th>Ingredient Price</th>
                 </tr>
                 </thead>
             
@@ -88,10 +88,10 @@ include('navbar.php');
                 if ($result -> num_rows>0) {
                     while ($row = $result->fetch_assoc()) {
                         echo"<tr>";
-                        echo"<td align=left>".$row["pid"]."</td>".
-                        "<td align=left>".$row["pname"]."</td>".
+                        echo"<td >".$row["pid"]."</td>".
+                        "<td >".$row["pname"]."</td>".
                         "<td>".$row["unit"]."</td>".
-                        "<td align=right>".number_format($row["price"],2)."</td>"
+                        "<td>".number_format($row["price"],2)."</td>"
                         ;
 
                     }

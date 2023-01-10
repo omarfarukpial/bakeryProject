@@ -18,6 +18,7 @@
 }
 .img-responsive{
     width: 100%;
+    
 }
 .img-curve{
     border-radius: 10px;
@@ -90,6 +91,7 @@ h3{
 .logo{
     width: 10%;
     float: left;
+  
     
 }
 
