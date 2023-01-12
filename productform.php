@@ -7,6 +7,9 @@
         <title>Bakery Website</title>
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
         <!--link css file-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+ 
         <link rel="stylesheet" href="style.css">
             <style>
                 input[type=text], select {
@@ -65,13 +68,13 @@ include('navbar.php');
 
         <div class="inform">
             <form action="productup.php" method = "post">
-                <label for="pid">Ingredients ID</label>
-                <input type="text" id="pid" name="pid" placeholder="Product ID">
+                <!-- <label for="pid">Ingredients ID</label>
+                <input type="text" id="pid" name="pid" placeholder="Product ID"> -->
 
                 <label for="pname">Ingredients Name</label>
                 <input type="text" id="pname" name="pname" placeholder="Product Name">
 
-                <label for="unit">Unit</label>
+                <label for="unit">Unit Type</label>
                 <select name="unit" id="unit">
                     <option disable seleted>Select Unit type</option>
                     <option value="kg">kg</option>
@@ -81,10 +84,10 @@ include('navbar.php');
                     <option value="ounce">ounce</option>
                     
                 </select>
-
+                <!-- 
                 <label for="price">Price</label>
                 <input type="text" id="price" name="price" placeholder="Price">
-               
+                -->
                 <input type="submit" value="Submit">
             </form>
         </div>
@@ -101,6 +104,9 @@ include('navbar.php');
         </section>  -->
        
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
 </html>

@@ -16,6 +16,6 @@ if ($conn->query($sql) === TRUE) {
     $conn->close();
 
 
-    header( "refresh:2; url=ordershow.php" );
+    header( "refresh:2; url=foodshowcase2.php" );
 
 ?>

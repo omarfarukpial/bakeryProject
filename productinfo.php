@@ -25,13 +25,12 @@ $q = $_GET['q'];
 
 
 mysqli_select_db($conn,"bakery");
-$sql="SELECT * FROM product WHERE pid = '".$q."'";
+$sql="SELECT * FROM product WHERE id = '".$q."'";
 $result = mysqli_query($conn,$sql);
 
 
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
-  echo "<td>" . $row['pid'] . "</td>";
   echo "<td>" . $row['pname'] . "</td>";
   echo "<td>" . $row['unit'] . "</td>";
   echo "<td>" . $row['price'] . "</td>";

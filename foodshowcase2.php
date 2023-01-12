@@ -9,7 +9,9 @@
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/997101869c.js" crossorigin="anonymous"></script>
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+ 
         <style>
             #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -146,7 +148,7 @@
     
     include('connect.php');
 
-    $sql = "SELECT foodshowcase.fid, foodshowcase.fquantity as fquantity, food.fid, food.id as id, food.fname as fname, food.fcategory as           fcategory, food.fingradient as fingradient, food.fprice as fprice 
+    $sql = "SELECT foodshowcase.fid, foodshowcase.fquantity as fquantity, food.fid as id, food.fname as fname, food.fcategory as           fcategory, food.fingradient as fingradient, food.fprice as fprice 
             FROM foodshowcase
             INNER JOIN food ON foodshowcase.fid = food.fid";
     $result = $conn->query($sql);
@@ -156,26 +158,24 @@
         // output data of each row
     
         while($row = $result->fetch_assoc()) {
+            if ($row["fquantity"]>0){
             echo "<div class='col'>
                     <div class='card border rounded h-100 cbody'>
                         <div class='card-body text-center px-5'>
                             <h2 class='p-text'>".$row["fname"]."</h2> <br>
                             <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
                             <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
-                            <h3 class='p-text'> Price: ".((double)$row["fprice"]+((double)$row["fprice"]*30/100))." taka</h3>
+                            <h3 class='p-text'> Price: ".$row["fprice"]." taka</h3>
                             <h4 class='p-text'> Available item: ".$row["fquantity"]."</h4>
                             <a href = orderquantity.php?fid=".$row["id"]."> 
                             <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'>Place Order</button>
                             </a>
-                            <br>
-                            <a href = foodshowcaseedit.php?id=".$row["id"]."> 
-                            <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'><i class='fa fa-edit'></i>Edit</button>
-                            </a>
                             
-
                         </div>
                     </div>
                 </div> ";
+
+            }
 
         }
     } else {
@@ -188,6 +188,11 @@
 </div>
 </div>
 
+<!-- <br>
+<a href = foodshowcaseedit.php?id=".$row["id"]."> 
+<button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'><i class='fa fa-edit'></i>Edit</button>
+</a> -->
+
 
         
        
@@ -195,5 +200,10 @@
        
        
     </body>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 </html>

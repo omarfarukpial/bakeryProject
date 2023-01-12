@@ -113,8 +113,8 @@ $editid = $_GET['id'];
 
         <div class="inform" >
             <form action="foodshowcaseeditformup.php" method = "post" enctype= "multipart/form-data">
-                <label for="fid">Food ID</label>
-                <input type="text" id="fid" name="fid" placeholder="Food ID">
+                <!-- <label for="fid">Food ID</label>
+                <input type="text" id="fid" name="fid" placeholder="Food ID"> -->
 
                 <label for="fname">Food Name</label>
                 <input type="text" id="fname" name="fname" placeholder="Food Name">
@@ -146,7 +146,7 @@ $editid = $_GET['id'];
                         <select name="ingradient_name[]" id = "iname" class="ingradient_name" onchange="showUnit(this.value)">
                         <option disable selected> Select Ingradients</option>
                         <?php
-                            $sql = 'select pid,pname from product';
+                            $sql = 'select pname from product';
                             $res = $conn->query($sql);
                             while ($row = $res->fetch_assoc()) {
                                 printf(

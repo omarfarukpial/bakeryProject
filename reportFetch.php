@@ -9,26 +9,26 @@ $totalSell = 0;
 
 
 
-$reportBuySql = "SELECT * FROM transaction WHERE date_time BETWEEN '$stime' AND '$etime' AND status = 'buy';";
+$reportBuySql = "SELECT * FROM purchase_history WHERE date BETWEEN '$stime' AND '$etime'";
 $reportBuyFetch = $conn->query($reportBuySql);
 
 // echo $reportBuyFetch['amount'];
 
 if ($reportBuyFetch -> num_rows > 0) {
     while($rowBuy = $reportBuyFetch->fetch_assoc()) {
-        $totalBuy = $totalBuy + $rowBuy['amount'];
+        $totalBuy = $totalBuy + $rowBuy['tprice'];
     }    
 }
 
 
 
-$reportSellSql = "SELECT * FROM transaction WHERE date_time BETWEEN '$stime' AND '$etime' AND status = 'sell';";
+$reportSellSql = "SELECT * FROM sell_history WHERE date BETWEEN '$stime' AND '$etime'";
 $reportSellFetch = $conn->query($reportSellSql);
 // echo $reportSellFetch['amount'];
 
 if ($reportSellFetch -> num_rows > 0) {
     while($rowSell = $reportSellFetch->fetch_assoc()) {
-        $totalSell = $totalSell + $rowSell['amount'];
+        $totalSell = $totalSell + $rowSell['fprice'];
     }
 
 }
@@ -96,7 +96,7 @@ $totalRevenue = $totalSell - $totalBuy;
                                 Total Sell:
                             </td>
                             <td>
-                                <?php echo $totalSell ?>
+                                <?php echo number_format($totalSell,2) ?>
 
                             </td>
                         </tr>
@@ -105,7 +105,7 @@ $totalRevenue = $totalSell - $totalBuy;
                                 Total Buy:
                             </td>
                             <td>
-                                <?php echo $totalBuy ?>
+                                <?php echo number_format($totalBuy,2) ?>
 
                             </td>
                         </tr>
@@ -114,7 +114,7 @@ $totalRevenue = $totalSell - $totalBuy;
                                 Total Revenue:
                             </td>
                             <td>
-                                <?php echo $totalRevenue ?>
+                                <?php echo number_format($totalRevenue,2) ?>
 
                             </td>
                         </tr>
@@ -123,7 +123,7 @@ $totalRevenue = $totalSell - $totalBuy;
                     
                     
             </table>
-            <button class="btn btn-primary text-center mx-auto align-middle" onclick="downloadPDF()">Download as PDF</button>
+            <button class="btn btn-primary text-center mx-auto align-middle" onclick="downloadPDF()">Print</button>
         </div>
 
         <script>

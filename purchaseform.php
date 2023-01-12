@@ -5,6 +5,9 @@
         <!-- Important to make website responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Purchase form</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+ 
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
@@ -34,6 +37,7 @@
                 background-color: #45a049;
                 }
 
+
                 .inform {
                 border-radius: 5px;
                 background-color: #f2f2f2;
@@ -46,7 +50,7 @@
 
             table {
             margin-left: 30px;
-            width: 80%;
+            width: 100%;
             border-collapse: collapse;
             }
 
@@ -89,47 +93,47 @@
         <h3 style = "text-align: center">Purchase</h3>
 
         <div style="display: flex">
-            <div class="inform" style="margin-left:50px; width:40%">
+            <div class="inform" style="margin-left:50px; width:100%">
                 <form action="purchaseformup.php" method = "post">
                     <label for="pid">Ingredient Name</label>
-                    <select name="pid" onchange="showUser(this.value)" >
+                    <select name="pid" onchange="showUnit(this.value)" >
                         <option disable selected> Select Ingredient</option>
                         <?php
-                            $sql = 'select pid,pname from product';
+                            $sql = 'select id, pname from product';
                             $res = $conn->query($sql);
                             while ($row = $res->fetch_assoc()) {
                                 printf(
-                                    '<option value="%s">%s', $row['pid'], $row['pname']
+                                    '<option value="%d">%s', $row['id'], $row['pname']
                                 );
                             }
 
                         ?>
                     </select>
+                    <label for="ptype">Unit Type</label>
+                    <input type="text" id="ptype" name="ptype" placeholder="Product Type" readonly>
 
                     <label for="quantity">Ingredient Quantity</label>
                     <input type="text" id="quantity" name="quantity" placeholder="Product Quantity">
 
-                       
-                    
-                   
+                    <label for="tprice">Total Price</label>
+                    <input type="text" id="tprice" name="tprice" placeholder="Total Price">
 
-                    
-                
+             
                     <input type="submit" value="Submit">
                 </form>
             </div>
 
-            <div style="text-align: center; width: 50%">
+            <!-- <div style="text-align: center; width: 50%">
                 <h4>Ingredient Information</h4>
                 <table>
                     <tr>
-                        <th>Ingredient ID</th>
-                        <th>Ingredient Name</th>
-                        <th>Unit</th>
-                        <th>Price</th>
+                       
+                        <th style="text-align:center">Ingredient Name</th>
+                        <th style="text-align:center">Unit Type</th>
+                        <th style="text-align:center"> Unit Price</th>
                     </tr>
                     <tr id = "str1">
-                        <td></td>
+                       
                         <td></td>
                         <td></td>
                         <td></td>
@@ -137,11 +141,11 @@
                    
                 </table>
 
-            </div>
+            </div> -->
 
         </div>
         
-
+<!-- 
 
         <script>
             function showUser(str) {
@@ -157,7 +161,7 @@
         
             }
         </script>
-       
+        -->
         
        
         <!--social media section starts here--> 
@@ -187,6 +191,35 @@
             </div>
         </section> -->
         <!--footer section ends here-->
+
+        
+    <script>
+        function showUnit(pid) {
+            
+            
+                    var xmlhttp=new XMLHttpRequest();
+                    xmlhttp.onreadystatechange=function() {
+                    if (this.readyState==4 && this.status==200) {
+                        var myobj = JSON.parse(this.responseText);
+                        
+                        document.getElementById("ptype").value=myobj[0];
+                        }
+                    }
+
+                    // console.log(i);
+                    
+
+                        
+            
+            xmlhttp.open("GET","productunitfill.php?pid="+pid,true);
+            xmlhttp.send();
+            }
+    </script>
+
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 </html>

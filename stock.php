@@ -72,28 +72,31 @@ include('navbar.php');
             <table id=""class=" table table-success table-striped table-borderd text-center  table-hover rounded"style="border-radius: 1em;overflow: hidden; ">
                 <thead class="thead-dark text-center align-middle">
                 <tr>
-                <th>Ingredient ID</th>
+                <!-- <th>Ingredient ID</th> -->
                 <th>Ingredient Name</th>
                 <th>Quantity</th>
+                <!-- <th>Unit Type</th> -->
+                <th>Price Per Unit</th>
+
+
                 <!-- <th>Ingradient Unit Type</th> -->
                 <!-- <th>Total Cost</th> -->
             </tr>
                 </thead>
             <?php
                 include('connect.php');
-                $sql= "SELECT a.pname as a_name, b.pid as b_pid, b.pquantity as b_pquantity, a.unit as a_unit, b.pcost as b_pcost
+                $sql= "SELECT a.pname as a_name, b.pid as b_pid, b.pquantity as b_pquantity, a.unit as a_unit, b.uprice as b_pcost
                     FROM product as a
-                    INNER JOIN stock as b ON (a.pid=b.pid)";
+                    INNER JOIN stock as b ON (a.id=b.pid)";
                 $result = $conn->query($sql);
 
                 if ($result -> num_rows>0) {
                     while ($row = $result->fetch_assoc()) {
                         echo"<tr>";
-                        echo"<td>".$row["b_pid"]."</td>".
-                        "<td >".$row["a_name"]."</td>".
-                        "<td >".$row["b_pquantity"]." ".$row["a_unit"]."</td>"
+                        echo "<td >".$row["a_name"]."</td>".
+                        "<td >".$row["b_pquantity"]." ".$row["a_unit"]."</td>".
                         // "<td >".$row["a_unit"]."</td>".
-                        // "<td align=right>".number_format($row["b_pcost"],2)."</td>"
+                        "<td>".number_format($row["b_pcost"],2)."</td>"
                         ;
 
                     }

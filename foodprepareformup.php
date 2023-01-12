@@ -54,14 +54,14 @@ else {
         for ($loop=0; $loop<count($ing)-1; $loop=$loop+2) {
             $productID = $ing[$loop];
             $productAmount = $ing[$loop+1];
-            $stockUpdateSql = "UPDATE stock SET pquantity = pquantity-($fquantity*$productAmount) WHERE pid = '$productID' ";
+            $stockUpdateSql = "UPDATE stock SET pquantity = pquantity-($fquantity*$productAmount), tprice = tprice-($fquantity*$productAmount*uprice) WHERE pid = '$productID' ";
             $conn->query($stockUpdateSql);
         }
 
         if ($result -> num_rows == 0) {
             $stmt = $conn->prepare("insert into foodshowcase(fid, fquantity)
                                 values(?,?)");
-            $stmt->bind_param("sd",$fid,$fquantity);
+            $stmt->bind_param("id",$fid,$fquantity);
             $stmt->execute();
             
         
@@ -76,7 +76,7 @@ else {
         
         
         
-        header("Location: foodshowcase2.php");
+        header("Location: managefood.php");
        
 }
 

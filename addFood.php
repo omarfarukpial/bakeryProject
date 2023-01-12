@@ -11,7 +11,9 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+ 
         <style>
             #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -125,8 +127,8 @@ include('connect.php');
 
         <div class="inform" >
             <form action="testingradient.php" method = "post" enctype= "multipart/form-data">
-                <label for="fid">Food ID</label>
-                <input type="text" id="fid" name="fid" placeholder="Food ID">
+                <!-- <label for="fid">Food ID</label>
+                <input type="text" id="fid" name="fid" placeholder="Food ID"> -->
 
                 <label for="fname">Food Name</label>
                 <input type="text" id="fname" name="fname" placeholder="Food Name">
@@ -169,7 +171,7 @@ include('connect.php');
                         <select name="ingradient_name[]" id = "iname" class="ingradient_name" onchange="showUnit(this.value)">
                         <option disable selected> Select Ingradients</option>
                         <?php
-                            $sql = 'select pid,pname from product';
+                            $sql = 'select pname from product';
                             $res = $conn->query($sql);
                             while ($row = $res->fetch_assoc()) {
                                 printf(
@@ -183,7 +185,7 @@ include('connect.php');
                             <!-- <input type="text"  name="ingradient_name[]" value=""  class="ingradient_name" placeholder="Name" required> -->
                             <input type="text" id = "iamount" name="ingradient_amount[]" value=""  class="ingradient_amount" placeholder="Quantity" required>
 
-                            <input type="text" id="ingradient_unit_0" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit">
+                            <input type="text" id="ingradient_unit_0" name="ingradient_unit[]" value=""  class="ingradient_unit" placeholder="unit" readonly>
                             
                             <!-- <button class="crossb" id="removeRow"></button> -->
                             
@@ -358,5 +360,9 @@ include('connect.php');
        
        
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 </html>

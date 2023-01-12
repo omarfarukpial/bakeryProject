@@ -8,8 +8,8 @@
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
         <!--link css file-->
         <link rel="stylesheet" href="style.css">
-
-        <!-- <style>
+<!-- 
+        <style>
             #customers {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
@@ -39,8 +39,8 @@
             .container{
                 font-size: x-large;
             }
-        </style> -->
-            
+        </style>
+             -->
     </head>
     
     <body>
@@ -65,33 +65,30 @@ include('navbar.php');
        <div class="container-xxl" style="width:100%; margin: auto; ">
            
 
-           <h1 style="text-align: center;" class="">Ingredients Table</h1>
+           <h1 style="text-align: center;" class="">Ingredients List</h1>
 
             <table id=""class=" table table-success table-striped table-borderd text-center  table-hover rounded"style="border-radius: 1em;overflow: hidden; ">
                 <thead class="thead-dark text-center align-middle">
-                <tr class="text-center">
-                <th>Ingredient ID</th>
-                <th>Ingredient Name</th>
-                <th>Unit Type</th>
-                <th>Ingredient Price</th>
-                </tr>
+                    <tr class="text-center">
+                        <!-- <th>Ingredient ID</th> -->
+                        <th>Ingredient Name</th>
+                        <th>Unit Type</th>
+                        <!-- <th>Ingredient Price</th> -->
+                    </tr>
                 </thead>
             
             
-
-            
             <?php
                 include('connect.php');
-                $sql= "select pid,pname, unit, price from product";
+                $sql= "select id,pname, unit from product";
                 $result = $conn->query($sql);
 
                 if ($result -> num_rows>0) {
                     while ($row = $result->fetch_assoc()) {
                         echo"<tr>";
-                        echo"<td >".$row["pid"]."</td>".
-                        "<td >".$row["pname"]."</td>".
-                        "<td>".$row["unit"]."</td>".
-                        "<td>".number_format($row["price"],2)."</td>"
+                        echo"<td >".$row["pname"]."</td>".
+                        "<td>".$row["unit"]."</td>"
+                        // "<td>".number_format($row["price"],2)."</td>"
                         ;
 
                     }

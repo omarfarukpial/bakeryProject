@@ -70,7 +70,7 @@
             <table id=""class=" table table-success table-striped table-borderd text-center  table-hover rounded"style="border-radius: 1em;overflow: hidden; ">
                 <thead class="thead-dark text-center align-middle">
                 <tr>
-                <th>Order ID</th>
+                <!-- <th>Order ID</th> -->
                 <th>Food Name</th>
                 <th>Food Category</th>
                 <th>Food Quantity</th>
@@ -88,19 +88,18 @@
                 $sql= "SELECT *
                 FROM food
                 INNER JOIN ordertable
-                ON food.id = ordertable.fid
+                ON food.fid = ordertable.fid
                 WHERE ordertable.status = 'pending'";
                 $result = $conn->query($sql);
 
                 if ($result -> num_rows>0) {
                     while ($row = $result->fetch_assoc()) {
                         echo"<tr>";
-                        echo"<td>".$row["id"]."</td>".
-                        "<td>".$row["fname"]."</td>".
+                        echo "<td>".$row["fname"]."</td>".
                         "<td>".$row["fcategory"]."</td>".
                         "<td>".$row["fquantity"]."</td>".
                         "<td>".$row["fingradient"]."</td>".
-                        "<td>".($row["fprice"]+$row["fprice"]*30/100)*$row["fquantity"]."</td>".
+                        "<td>".number_format($row["fprice"]*$row["fquantity"],2)."</td>".
                         "<td>".$row["time"]."</td>". 
                         "<td> <a href= 'confirmorder.php?oid=".$row["id"]."'><button style='color: white; background-color: green; padding:5px;  border-radius: 5px; border: none;'>Accept</button> </a> </td>". 
                         "<td> <a href= 'cancelorder.php?oid=".$row["id"]."'><button style='color: white; background-color: red; padding:5px;  border-radius: 5px; border: none;'>Cancel</button> </a> </td>"

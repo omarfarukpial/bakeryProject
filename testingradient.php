@@ -1,6 +1,3 @@
-<?php 
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 
@@ -102,7 +99,7 @@ session_start();
 	$ingradient_unit = $_POST['ingradient_unit'];
 
 
-    $fid = $_POST['fid'];
+    // $fid = $_POST['fid'];
     $fname = $_POST['fname'];
     $fcategory = $_POST['fcategory'];
     
@@ -119,10 +116,10 @@ session_start();
 
             <table id="customers"  >
             <tr>
-                <th>Poduct</th>
-                <th>Quantity</th>
-                <th>Unit type</th>
-                <th>Price</th>
+                <th style= "text-align: center">Poduct</th>
+                <th style= "text-align: center">Quantity</th>
+                <th style= "text-align: center">Unit type</th>
+                <th style= "text-align: center">Price</th>
 
             </tr>
 
@@ -142,37 +139,40 @@ session_start();
 	$len = count($ingradient_name);
     for ( $i= 0; $i<$len; $i++) {
 
-        $ingradcostdb = ($conn->query("SELECT * FROM product WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['price'];
+        $ingradcostdb = ($conn->query("SELECT * FROM stock WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['uprice'];
         $ingradcost = $ingradient_amount[$i] * $ingradcostdb;
         $netcost += $ingradcost;
 
         $ingradientString = $ingradientString.$ingradient_name[$i]." = ".$ingradient_amount[$i]." ".$ingradient_unit[$i]."<br>";
 
-        $ingIDdb = ($conn->query("SELECT * FROM product WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['pid'];
+        $ingIDdb = ($conn->query("SELECT * FROM stock WHERE pname='$ingradient_name[$i]'")->fetch_assoc())['pid'];
         $ingID = $ingID.$ingIDdb." ".$ingradient_amount[$i]." ";
 
         echo "<tr>";
-        echo "<td align=left>".$ingradient_name[$i]."</td>". "<td align=right>".$ingradient_amount[$i]."</td>". "<td align=left>".$ingradient_unit[$i]."</td>"."<td align=right>".$ingradcost."</td>";
+        echo "<td align=left>".$ingradient_name[$i]."</td>". "<td>".$ingradient_amount[$i]."</td>". "<td>".$ingradient_unit[$i]."</td>"."<td>".number_format($ingradcost,2)."</td>";
         echo "</tr>";
     }
 
     // echo $ingradientString;
 
 
-    //$totalcost = $netcost + (($netcost*20)/100);
+    $totalcost = $netcost + (($netcost*30)/100);
 
 
     // ."<br>+20%<br>Total Cost = ".number_format($totalcost,2).
 
     echo "<tr>";
-    echo "<td colspan=3> </td>". "<td align=right><b>Net Cost = ".number_format($netcost,2)."</b></td>";
+    echo "<td colspan=3> </td>". "<td>Net Cost = ".number_format($netcost,2)."</td>";
+    echo "</tr>";
+    echo "<tr>";
+    echo "<td colspan=3> </td>". "<td><b>Total Cost = ".number_format($totalcost,2)."</b></td>";
     echo "</tr>";
 
-    $_SESSION['fid'] = $fid;
+    // $_SESSION['fid'] = $fid;
     $_SESSION['fname'] = $fname;
     $_SESSION['fcategory'] = $fcategory;
     $_SESSION['ingradientString'] = $ingradientString;
-    $_SESSION['netcost'] = $netcost;
+    $_SESSION['tcost'] = $totalcost;
     $_SESSION['ingID'] = $ingID;
 
     

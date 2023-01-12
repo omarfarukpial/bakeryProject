@@ -4,11 +4,11 @@ session_start();
 include('connect.php');
 
 
-$fid = $_SESSION['fid'];
+
 $fname = $_SESSION['fname'];
 $fcategory = $_SESSION['fcategory'];
 $ingradientString = $_SESSION['ingradientString'];
-$netcost = $_SESSION['netcost'];
+$totalcost = $_SESSION['tcost'];
 $ingID = $_SESSION['ingID'];
 
 
@@ -22,7 +22,7 @@ $ingID = $_SESSION['ingID'];
 
 
 
-$sql = "INSERT INTO food (fid, fname,  fcategory, fingradient, ingID, fprice) VALUES ('$fid','$fname','$fcategory','$ingradientString', '$ingID', '$netcost')";
+$sql = "INSERT INTO food (fname,  fcategory, fingradient, ingID, fprice) VALUES ('$fname','$fcategory','$ingradientString', '$ingID', '$totalcost')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";

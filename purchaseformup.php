@@ -1,43 +1,46 @@
 <?php
 include('connect.php');
 $pid = $_POST['pid'];
+$ptype =$_POST['ptype'];
 $pquantity = $_POST['quantity'];
+$tprice = $_POST['tprice'];
 
-$sql= "SELECT * From stock
-        WHERE pid = '$pid' ";
+$sql= "select * from stock where pid = '$pid'";
 $result = $conn->query($sql);
 
-$sqlcost = "SELECT price as p, pname as n From product
-            WHERE pid = '$pid'";
+$sqlcost = "SELECT pname From product
+            WHERE id = '$pid'";
 $cost = $conn->query($sqlcost);
-
 $row = $cost->fetch_assoc();
-$pcost = $row['p'];
-$pname = $row['n'];
+$pname = $row['pname'];
 
 
 
-$totalcost = $pcost*$pquantity;
+
+// $totalcost = $pcost*$pquantity;
 
 
 
 
 if ($result -> num_rows == 0) {
-    $stmt = $conn->prepare("insert into stock(pid,pname, pquantity,punitcost, pcost)
-                        values(?,?,?,?,?)");
-    $stmt->bind_param("ssddd",$pid,$pname, $pquantity, $pcost, $totalcost);
-    $stmt->execute();
+    $unitPrice = $tprice / $pquantity;
+    $stmt = "insert into stock(pid, pname, pquantity, type, tprice, uprice) values('$pid', '$pname', '$pquantity', '$ptype', '$tprice', '$unitPrice')";
+    $conn->query($stmt);
 
 }
 else {
-    $stmt = $conn->prepare("UPDATE stock SET pquantity = pquantity+$pquantity, pcost = pcost+$totalcost WHERE pid = '$pid' ");
-    $stmt->execute();
+    $pdata = $result->fetch_assoc();
+    $unitPrice = ($pdata['tprice']+$tprice)/($pdata['pquantity']+$pquantity);
+    // echo $unitPrice;
+    $stmt = "UPDATE stock SET pquantity = pquantity+$pquantity, tprice = tprice+$tprice, uprice = '$unitPrice' WHERE pid = '$pid' ";
+    $conn->query($stmt);
 
 }
 
-$transactionSql = "INSERT INTO transaction(status,amount) VALUES ('buy','$totalcost')";
-$conn->query($transactionSql);
+$purchase_history_update = "INSERT INTO purchase_history(pname, amount, unit_type, tprice) VALUES ('$pname','$pquantity', '$ptype', '$tprice')";
 
+
+$conn->query($purchase_history_update);
 
 
 header("Location: stock.php");

@@ -31,7 +31,7 @@ $result = mysqli_query($conn,$sql);
 
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
-  echo "<td>" . $row['fid'] . "</td>";
+  // echo "<td>" . $row['fid'] . "</td>";
   echo "<td>" . $row['fname'] . "</td>";
   echo "<td>" . $row['fcategory'] . "</td>";
   echo "<td>" . $row['fingradient'] . "</td>";

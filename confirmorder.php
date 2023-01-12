@@ -53,17 +53,16 @@ $fidFetch = $conn->query($fidSql)->fetch_assoc();
 $fid = $fidFetch['fid'];
 $foodQuantity = $fidFetch['fquantity'];
 
-$foodIdSql = "SELECT * FROM food WHERE id = '$fid'";
+$foodIdSql = "SELECT * FROM food WHERE fid = '$fid'";
 $foodIdRow = $conn->query($foodIdSql)->fetch_assoc();
-$foodId = $foodIdRow['fid'];
+$foodName = $foodIdRow['fname'];
+$foodPrice = ($foodIdRow['fprice'])*$foodQuantity;
 
-$foodPrice = $foodIdRow['fprice'] + $foodIdRow['fprice']*(30.0/100);
-
-$removeItemFoodshowcaseSql = "UPDATE foodshowcase SET fquantity = fquantity-$foodQuantity WHERE fid = '$foodId'";
+$removeItemFoodshowcaseSql = "UPDATE foodshowcase SET fquantity = fquantity-$foodQuantity WHERE fid = '$fid'";
 $conn->query($removeItemFoodshowcaseSql);
 
-$transactionSql = "INSERT INTO transaction(status,amount) VALUES ('sell','$foodPrice')";
-$conn->query($transactionSql);
+$sell_history_update = "INSERT INTO sell_history(fname,fquantity, fprice) VALUES ('$foodName','$foodQuantity','$foodPrice')";
+$conn->query($sell_history_update);
 
 $removeOrderSql = "UPDATE ordertable SET status = 'accept' WHERE id = '$oid'";
 $conn->query($removeOrderSql);
