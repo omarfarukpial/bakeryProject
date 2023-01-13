@@ -76,7 +76,7 @@ else {
         
         
         
-        header("Location: managefood.php");
+        header("Location: foodshowcase2.php");
        
 }
 

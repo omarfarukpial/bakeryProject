@@ -115,21 +115,21 @@
     </head>
     
     <body>
-        <!--Navbar section starts here--> 
+
         <?php
 
             include('navbar.php');
+            include('connect.php');
+
+            $username = $_SESSION['username'];
+
+            $sql = "SELECT foodshowcase.fid, foodshowcase.fquantity as fquantity, food.fid as id, food.fname as fname, food.fcategory as fcategory, food.fingradient as fingradient, food.fprice as fprice 
+                    FROM foodshowcase
+                    INNER JOIN food ON foodshowcase.fid = food.fid";
+            $result = $conn->query($sql);
 
         ?>
-        <!--Navbar section ends here-->
 
-        <!-- <div class="container">
-            
-            <div>
-                <button type = "button" class="backbtn" onclick="history.back()"> Back </button>
-            </div>
-
-        </div> -->
 
 
         
@@ -139,62 +139,42 @@
 
      
     <h1>Food Showcase</h1>
-<div class="container-xxl">
-    <div class="row row-cols-1 row-cols-md-4 g-4 clinicliststyle">
 
 
+    
+    <div class="container">
+        <div class="row d-flex flex-wrap">
+        <?php while($row = $result->fetch_assoc()) {
+            if ($row["fquantity"]>0){ ?>
+                    <div class="card m-5" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><h3><?php echo $row['fname']?></h3></h5>
+                            <p class="card-text"><?php echo $row['fcategory']?></p>
+                            <p class="card-text"><small><?php echo $row['fingradient']?></small></p>
+                            <p class="card-text"><h5>৳ <?php echo $row['fprice']?></h5></p>
+                            <p class="card-text">Available: <?php echo $row['fquantity']?></p>
+                            <?php
+                            if ($username == 'admin') {
 
-<?php
-    
-    include('connect.php');
+                            }
+                            else {
+                                ?>
+                                <a href="orderquantity.php?fid=<?php echo $row['id']?>" class="btn btn-danger">Place Order</a>
+                            <?php
+                            }
 
-    $sql = "SELECT foodshowcase.fid, foodshowcase.fquantity as fquantity, food.fid as id, food.fname as fname, food.fcategory as           fcategory, food.fingradient as fingradient, food.fprice as fprice 
-            FROM foodshowcase
-            INNER JOIN food ON foodshowcase.fid = food.fid";
-    $result = $conn->query($sql);
-    
-    
-    if ($result->num_rows > 0) {
-        // output data of each row
-    
-        while($row = $result->fetch_assoc()) {
-            if ($row["fquantity"]>0){
-            echo "<div class='col'>
-                    <div class='card border rounded h-100 cbody'>
-                        <div class='card-body text-center px-5'>
-                            <h2 class='p-text'>".$row["fname"]."</h2> <br>
-                            <h4 class='p-text'> Food Category: ".$row["fcategory"]."</h4>
-                            <h4 class='p-text'> Ingradients: ".$row["fingradient"]."</h4>
-                            <h3 class='p-text'> Price: ".$row["fprice"]." taka</h3>
-                            <h4 class='p-text'> Available item: ".$row["fquantity"]."</h4>
-                            <a href = orderquantity.php?fid=".$row["id"]."> 
-                            <button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'>Place Order</button>
-                            </a>
+                            ?>
                             
                         </div>
                     </div>
-                </div> ";
+            <?php }
+            } ?>
+        </div>
 
-            }
-
-        }
-    } else {
-        echo "0 results";
-    }
+    </div>
+    
 
 
-?>
-
-</div>
-</div>
-
-<!-- <br>
-<a href = foodshowcaseedit.php?id=".$row["id"]."> 
-<button type = 'button' style = 'margin-top: 20px; padding:10px; background-color: yellow; border: none;'><i class='fa fa-edit'></i>Edit</button>
-</a> -->
-
-
-        
        
         
        

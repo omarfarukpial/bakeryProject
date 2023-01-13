@@ -17,12 +17,13 @@ else {
 ?>
  
  
- <div class="container-fliud p-4" style="font-size: x-large;">
-        <nav class="navbar px-4 navbar-expand-lg navbar-light" style="background-color: azure;" >
-            <div class="logo">
-                <a class="navbar-brand" href="#">
-                    <img style="border-radius:50%;" height="120px" width="100px" src="cuppp.png" alt="logo"  class="img-responsive ">
+ <div class="container-fliud p-4 rounded-3" style="font-size: large;">
+        <nav class="navbar rounded-3 px-4 navbar-expand-lg navbar-light" style="background-color: azure;" >
+            <div class="">
+                <a class="navbar-brand" href="index.php">
+                    <img class="rounded-circle" style="height: auto; width: 80px;"  src="cuppp.png" alt="logo"  class="img-responsive ">
                 </a>
+                <span>Fariha's Bakery</span>
 
             </div>
 
@@ -36,13 +37,16 @@ else {
                 if ($islogged == 1 && $username == 'admin') {
                   ?>
                 <li class="nav-item mx-2">
-                  <a class="nav-link" href="index.php">Home</a>
+                  <a class="nav-link"  href="index.php">Home</a>
                 </li>
                 <li class="nav-item mx-2">
                   <a class="nav-link" href="manageingradients.php">Manage Ingredients</a>
                 </li>
                 <li class="nav-item mx-2">
                   <a class="nav-link" href="managefood.php">Manage Food</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-2" href="foodshowcase2.php">Food Showcase</a>
                 </li>
                 <li class="nav-item mx-2">
                   <a class="nav-link" href="ordershow.php">Orders</a>

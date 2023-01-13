@@ -73,7 +73,7 @@ $total_sell = 0;
                     echo "<tr>
                     <td></td>
                     <td>Total sell = </td>
-                    <td>".number_format($total_sell,2)."</td>
+                    <td> ৳ ".number_format($total_sell,2)."</td>
                     <td></td>
                     </tr>";
                 }

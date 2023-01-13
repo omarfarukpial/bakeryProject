@@ -76,7 +76,7 @@ $total_purchase = 0;
                     <td></td>
                     <td></td>
                     <td>Total Purchase = </td>
-                    <td>".number_format($total_purchase,2)."</td>
+                    <td> ৳ ".number_format($total_purchase,2)."</td>
                     <td></td>
                     </tr>";
                 }
