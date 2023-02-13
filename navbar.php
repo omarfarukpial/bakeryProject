@@ -52,7 +52,7 @@ else {
                   <a class="nav-link" href="ordershow.php">Orders</a>
                 </li>
                 <li class="nav-item mx-2">
-                  <a class="nav-link" href="report.php">Report</a>
+                  <a class="nav-link" href="reportupdated.php">Report</a>
                 </li>
                 <li class="nav-item mx-2">
                   <a class="nav-link" href="logout.php">Log Out</a>
